@@ -1,1035 +1,423 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Dopamin statt Disziplin – Webinar Warteliste</title>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Epilogue:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dopamin statt Disziplin</title>
+<meta name="description" content="Das Webinar für neurodivergente Gehirne. Warum Disziplin bei dir nicht hält und was stattdessen trägt." />
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Epilogue:wght@400;500;600&display=swap" rel="stylesheet">
+
 <style>
-  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-  :root {
-    --bg: #f2f0eb;
-    --ink: #18160f;
-    --muted: #6b6658;
-    --rule: #ddd9d0;
-    --purple: #5b2d8e;
-    --purple-light: #e8dff5;
-    --purple-dark: #4a2278;
-    --lime: #c8e832;
-    --lime-dark: #a5c020;
-    --white: #ffffff;
-  }
-
-  html { scroll-behavior: smooth; }
-
-  body {
-    background: var(--bg);
-    color: var(--ink);
-    font-family: 'Epilogue', sans-serif;
-    font-weight: 300;
-    line-height: 1.7;
-    overflow-x: hidden;
-  }
-
-  /* ── HERO ── */
-  .hero {
-    background: var(--ink);
-    color: var(--white);
-    min-height: 100svh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    padding: 6rem 2rem 5rem;
-    position: relative;
-    overflow: hidden;
-  }
-
-  .hero::before {
-    content: '';
-    position: absolute;
-    width: 600px; height: 600px;
-    background: var(--purple);
-    border-radius: 50%;
-    top: -200px; right: -150px;
-    opacity: .25;
-    pointer-events: none;
-  }
-
-  .hero::after {
-    content: '';
-    position: absolute;
-    width: 300px; height: 300px;
-    background: var(--lime);
-    border-radius: 50%;
-    bottom: -100px; left: -80px;
-    opacity: .08;
-    pointer-events: none;
-  }
-
-  .hero-inner {
-    max-width: 780px;
-    margin: 0 auto;
-    width: 100%;
-    position: relative;
-    z-index: 1;
-  }
-
-  .badge {
-    display: inline-flex;
-    align-items: center;
-    gap: .5rem;
-    background: var(--lime);
-    color: var(--ink);
-    font-size: .7rem;
-    font-weight: 500;
-    letter-spacing: .15em;
-    text-transform: uppercase;
-    padding: .4rem .9rem;
-    border-radius: 100px;
-    margin-bottom: 2rem;
-    width: fit-content;
-    opacity: 0;
-    animation: fadeUp .5s .1s forwards;
-  }
-
-  .hero h1 {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(3rem, 7vw, 6rem);
-    font-weight: 800;
-    line-height: 1.0;
-    letter-spacing: -.03em;
-    margin-bottom: 1.5rem;
-    opacity: 0;
-    animation: fadeUp .65s .25s forwards;
-  }
-
-  .hero h1 em {
-    font-style: italic;
-    font-family: 'Epilogue', serif;
-    font-weight: 300;
-    color: var(--lime);
-  }
-
-  .hero-sub {
-    font-size: clamp(1rem, 2vw, 1.2rem);
-    color: #a09888;
-    max-width: 560px;
-    line-height: 1.75;
-    margin-bottom: 3rem;
-    opacity: 0;
-    animation: fadeUp .65s .4s forwards;
-  }
-
-  .hero-sub strong { color: var(--white); font-weight: 500; }
-
-  /* ── PAIN ── */
-  .pain {
-    background: var(--purple);
-    color: var(--white);
-    padding: 5rem 2rem;
-  }
-
-  .pain-inner {
-    max-width: 780px;
-    margin: 0 auto;
-  }
-
-  .section-label {
-    font-size: .68rem;
-    letter-spacing: .2em;
-    text-transform: uppercase;
-    font-weight: 500;
-    margin-bottom: 1.8rem;
-    display: block;
-  }
-
-  .pain .section-label { color: var(--lime); }
-
-  .pain-text {
-    font-size: clamp(1.1rem, 2.2vw, 1.4rem);
-    line-height: 1.75;
-    color: #c9b8e0;
-    max-width: 680px;
-  }
-
-  .pain-text p { margin-bottom: 1.2rem; }
-  .pain-text p:last-child { margin-bottom: 0; }
-  .pain-text strong { color: var(--white); font-weight: 500; }
-
-  .pain-statement {
-    margin-top: 3rem;
-    padding: 2rem;
-    background: rgba(200,232,50,.08);
-    border-left: 3px solid var(--lime);
-    border-radius: 0 2px 2px 0;
-  }
-
-  .pain-statement p {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(1.2rem, 2.5vw, 1.7rem);
-    font-weight: 700;
-    color: var(--lime);
-    line-height: 1.3;
-    margin: 0;
-  }
-
-  /* ── WHY ── */
-  .why {
-    padding: 5rem 2rem;
-    border-bottom: 1px solid var(--rule);
-  }
-
-  .why-inner {
-    max-width: 780px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: start;
-  }
-
-  @media (max-width: 650px) { .why-inner { grid-template-columns: 1fr; gap: 2.5rem; } }
-
-  .why .section-label { color: var(--purple); }
-
-  .why h2 {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 1.5rem;
-  }
-
-  .why h2 em {
-    font-style: italic;
-    font-family: 'Epilogue', serif;
-    font-weight: 300;
-    color: var(--purple);
-  }
-
-  .why p {
-    color: var(--muted);
-    font-size: .95rem;
-    line-height: 1.75;
-    margin-bottom: 1rem;
-  }
-
-  .why p strong { color: var(--ink); font-weight: 500; }
-
-  .why-list {
-    list-style: none;
-    display: grid;
-    gap: 1rem;
-  }
-
-  .why-list li {
-    display: flex;
-    gap: 1rem;
-    font-size: .9rem;
-    color: var(--muted);
-    line-height: 1.6;
-    align-items: flex-start;
-  }
-
-  .why-list li::before {
-    content: '→';
-    color: var(--purple);
-    flex-shrink: 0;
-    font-weight: 500;
-    margin-top: 2px;
-  }
-
-  /* ── WHAT YOU LEARN ── */
-  .learn {
-    background: var(--ink);
-    color: var(--white);
-    padding: 5rem 2rem;
-  }
-
-  .learn-inner { max-width: 780px; margin: 0 auto; }
-
-  .learn .section-label { color: var(--lime); }
-
-  .learn h2 {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 2.5rem;
-  }
-
-  .learn h2 em {
-    font-style: italic;
-    font-family: 'Epilogue', serif;
-    font-weight: 300;
-    color: var(--lime);
-  }
-
-  .learn-items {
-    display: grid;
-    gap: 0;
-  }
-
-  .learn-item {
-    display: grid;
-    grid-template-columns: 2rem 1fr;
-    gap: 1.5rem;
-    padding: 1.6rem 0;
-    border-top: 1px solid rgba(255,255,255,.08);
-    align-items: start;
-  }
-
-  .learn-item:last-child { border-bottom: 1px solid rgba(255,255,255,.08); }
-
-  .learn-num {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.4rem;
-    font-weight: 800;
-    color: var(--lime);
-    opacity: .5;
-    line-height: 1;
-    padding-top: .15rem;
-  }
-
-  .learn-title {
-    font-weight: 500;
-    font-size: .95rem;
-    color: var(--white);
-    margin-bottom: .3rem;
-  }
-
-  .learn-desc {
-    font-size: .88rem;
-    color: #8a8070;
-    line-height: 1.6;
-  }
-
-  /* ── INCLUDED ── */
-  .included {
-    background: var(--purple-light);
-    padding: 4rem 2rem;
-    border-bottom: 1px solid var(--rule);
-  }
-
-  .included-inner {
-    max-width: 780px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: 1.5rem;
-  }
-
-  @media (max-width: 700px) { .included-inner { grid-template-columns: 1fr; } }
-
-  .included .section-label { color: var(--purple); grid-column: 1/-1; }
-
-  .incl-card {
-    background: var(--white);
-    border: 1px solid var(--rule);
-    border-radius: 2px;
-    padding: 1.8rem;
-  }
-
-  .incl-icon { font-size: 1.8rem; margin-bottom: .8rem; display: block; }
-
-  .incl-title {
-    font-family: 'Syne', sans-serif;
-    font-size: .9rem;
-    font-weight: 800;
-    text-transform: uppercase;
-    letter-spacing: .05em;
-    color: var(--purple);
-    margin-bottom: .4rem;
-  }
-
-  .incl-desc {
-    font-size: .85rem;
-    color: var(--muted);
-    line-height: 1.6;
-  }
-
-  /* ── FOR WHOM ── */
-  .forwhom {
-    padding: 5rem 2rem;
-    border-bottom: 1px solid var(--rule);
-  }
-
-  .forwhom-inner {
-    max-width: 780px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-  }
-
-  @media (max-width: 650px) { .forwhom-inner { grid-template-columns: 1fr; } }
-
-  .forwhom .section-label { color: var(--purple); }
-
-  .forwhom h2 {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(1.6rem, 3vw, 2.2rem);
-    font-weight: 800;
-    line-height: 1.15;
-    margin-bottom: 1.5rem;
-  }
-
-  .forwhom h2 em {
-    font-style: italic;
-    font-family: 'Epilogue', serif;
-    font-weight: 300;
-    color: var(--purple);
-  }
-
-  .fw-list { list-style: none; display: grid; gap: .9rem; }
-
-  .fw-list li {
-    display: flex;
-    gap: .8rem;
-    font-size: .9rem;
-    color: var(--muted);
-    line-height: 1.55;
-  }
-
-  .fw-list li::before {
-    content: '→';
-    color: var(--purple);
-    flex-shrink: 0;
-    font-weight: 500;
-    margin-top: 1px;
-  }
-
-  .fw-not {
-    background: #f0ede6;
-    padding: 1.8rem;
-    border-radius: 2px;
-    align-self: start;
-  }
-
-  .fw-not-label {
-    font-size: .7rem;
-    letter-spacing: .18em;
-    text-transform: uppercase;
-    font-weight: 500;
-    color: var(--muted);
-    margin-bottom: 1rem;
-    display: block;
-  }
-
-  .fw-not ul { list-style: none; display: grid; gap: .7rem; }
-
-  .fw-not li {
-    display: flex;
-    gap: .8rem;
-    font-size: .88rem;
-    color: #9a9080;
-    line-height: 1.5;
-  }
-
-  .fw-not li::before { content: '—'; flex-shrink: 0; color: #c0b8ac; }
-
-  /* ── SABRINA ── */
-  .sabrina {
-    background: var(--purple);
-    color: var(--white);
-    padding: 5rem 2rem;
-  }
-
-  .sabrina-inner {
-    max-width: 680px;
-    margin: 0 auto;
-  }
-
-  .sabrina .section-label { color: var(--lime); }
-
-  .sabrina h2 {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(1.6rem, 3vw, 2.2rem);
-    font-weight: 800;
-    line-height: 1.15;
-    margin-bottom: 1.5rem;
-  }
-
-  .sabrina p {
-    color: #c9b8e0;
-    font-size: 1rem;
-    line-height: 1.8;
-    margin-bottom: 1rem;
-  }
-
-  .sabrina p strong { color: var(--white); font-weight: 500; }
-
-  .sabrina-quote {
-    margin-top: 2rem;
-    padding: 1.5rem;
-    background: rgba(200,232,50,.08);
-    border-left: 3px solid var(--lime);
-    border-radius: 0 2px 2px 0;
-  }
-
-  .sabrina-quote p {
-    font-family: 'Syne', sans-serif;
-    font-size: 1rem;
-    font-weight: 700;
-    color: var(--lime);
-    line-height: 1.5;
-    margin: 0;
-  }
-
-  /* ── CTA ── */
-  .cta-section {
-    padding: 5rem 2rem;
-    background: var(--bg);
-    text-align: center;
-  }
-
-  .cta-inner {
-    max-width: 560px;
-    margin: 0 auto;
-  }
-
-  .cta-section .section-label { color: var(--purple); margin-bottom: 1.2rem; }
-
-  .cta-section h2 {
-    font-family: 'Syne', sans-serif;
-    font-size: clamp(2rem, 5vw, 3rem);
-    font-weight: 800;
-    line-height: 1.1;
-    margin-bottom: 1rem;
-  }
-
-  .cta-section h2 em {
-    font-style: italic;
-    font-family: 'Epilogue', serif;
-    font-weight: 300;
-    color: var(--purple);
-  }
-
-  .cta-section p {
-    color: var(--muted);
-    font-size: .95rem;
-    margin-bottom: 2rem;
-    line-height: 1.7;
-  }
-
-  .cta-section p strong { color: var(--ink); font-weight: 500; }
-
-  /* early bird perks */
-  .perks {
-    display: grid;
-    gap: .7rem;
-    margin-bottom: 2.5rem;
-    text-align: left;
-    background: var(--purple-light);
-    padding: 1.5rem;
-    border-radius: 2px;
-  }
-
-  .perk {
-    display: flex;
-    gap: .8rem;
-    font-size: .9rem;
-    color: var(--ink);
-    line-height: 1.5;
-    align-items: flex-start;
-  }
-
-  .perk::before {
-    content: '✓';
-    color: var(--purple);
-    font-weight: 700;
-    flex-shrink: 0;
-  }
-
-  .form-wrap {
-    max-width: 400px;
-    margin: 0 auto;
-  }
-
-  /* placeholder form styling */
-  .form-placeholder {
-    display: flex;
-    flex-direction: column;
-    gap: .8rem;
-  }
-
-  .form-placeholder input {
-    padding: .95rem 1.2rem;
-    border: 1.5px solid var(--rule);
-    background: var(--white);
-    font-family: 'Epilogue', sans-serif;
-    font-size: .95rem;
-    font-weight: 300;
-    color: var(--ink);
-    border-radius: 2px;
-    outline: none;
-    transition: border-color .2s;
-    width: 100%;
-  }
-
-  .form-placeholder input:focus { border-color: var(--purple); }
-  .form-placeholder input::placeholder { color: #b0ab9f; }
-
-  .btn-primary {
-    background: var(--lime);
-    color: var(--ink);
-    font-family: 'Epilogue', sans-serif;
-    font-size: 1rem;
-    font-weight: 500;
-    letter-spacing: .04em;
-    padding: 1rem 2rem;
-    border: none;
-    border-radius: 2px;
-    cursor: pointer;
-    transition: background .2s, transform .15s;
-    width: 100%;
-  }
-
-  .btn-primary:hover { background: var(--lime-dark); transform: translateY(-2px); }
-
-  .form-note {
-    font-size: .75rem;
-    color: #a0998f;
-    letter-spacing: .04em;
-    margin-top: .3rem;
-  }
-
-  /* ── PRICE NOTE ── */
-  .price-note {
-    margin-top: 2rem;
-    padding: 1rem 1.5rem;
-    background: var(--white);
-    border: 1px solid var(--rule);
-    border-radius: 2px;
-    font-size: .85rem;
-    color: var(--muted);
-    text-align: center;
-  }
-
-  .price-note strong { color: var(--purple); font-weight: 500; }
-
-  /* ── FOOTER ── */
-  footer {
-    padding: 2rem;
-    text-align: center;
-    font-size: .75rem;
-    color: var(--rule);
-    border-top: 1px solid var(--rule);
-    letter-spacing: .08em;
-  }
-
-  /* ── ANIMATIONS ── */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(18px); }
-    to   { opacity: 1; transform: none; }
-  }
-
-  .reveal {
-    opacity: 0;
-    transform: translateY(22px);
-    transition: opacity .6s ease, transform .6s ease;
+  :root{
+    --lila:#5B16D6;
+    --lila-deep:#3D0E92;
+    --limette:#C4F000;
+    --anthrazit:#2B2B33;
+    --offwhite:#FAF9F5;
+    --offwhite-2:#F1EFE8;
+    --maxw:960px;
+  }
+
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--offwhite);
+    color:var(--anthrazit);
+    font-family:'Epilogue',system-ui,sans-serif;
+    font-weight:400;
+    line-height:1.6;
+    font-size:18px;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  h1,h2,h3,.display{font-family:'Syne',sans-serif;line-height:1.05;letter-spacing:-0.01em;}
+
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
+
+  section{padding:88px 0;}
+  section + section{border-top:1px solid rgba(43,43,51,0.08);}
+
+  .eyebrow{
+    font-family:'Syne',sans-serif;
+    font-weight:700;
+    font-size:13px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--lila);
+    margin:0 0 18px;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:96px 0 80px;
+    background:
+      radial-gradient(120% 90% at 50% -10%, rgba(91,22,214,0.06), transparent 60%),
+      var(--offwhite);
+  }
+  .hero h1{
+    font-weight:800;
+    font-size:clamp(44px,9vw,92px);
+    margin:0 0 6px;
+  }
+  .hero h1 .dop{color:var(--lila);}
+  .hero h1 .statt{
+    display:inline-block;
+    font-weight:600;
+    color:var(--anthrazit);
+    opacity:0.55;
+    font-size:0.62em;
+    transform:translateY(-0.18em);
+    padding:0 0.12em;
+  }
+  .hero h1 .disz{
+    color:var(--anthrazit);
+    opacity:0.35;
+    text-decoration:line-through;
+    text-decoration-thickness:3px;
+    text-decoration-color:var(--limette);
+  }
+  .hero .sub{
+    font-family:'Syne',sans-serif;
+    font-weight:600;
+    font-size:clamp(18px,2.4vw,24px);
+    max-width:640px;
+    margin:26px 0 0;
+  }
+  .hero .kicker{
+    margin:14px 0 0;
+    font-size:17px;
+    color:rgba(43,43,51,0.7);
+    max-width:560px;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-block;
+    font-family:'Syne',sans-serif;
+    font-weight:700;
+    font-size:17px;
+    text-decoration:none;
+    padding:16px 30px;
+    border-radius:999px;
+    cursor:pointer;
+    border:2px solid transparent;
+    transition:transform .15s ease, background .15s ease, box-shadow .15s ease;
+  }
+  .btn-primary{
+    background:var(--lila);
+    color:var(--offwhite);
+    box-shadow:0 8px 24px rgba(91,22,214,0.28);
+  }
+  .btn-primary:hover{transform:translateY(-2px);background:var(--lila-deep);}
+  .btn-lime{background:var(--limette);color:var(--anthrazit);box-shadow:0 8px 24px rgba(196,240,0,0.35);}
+  .btn-lime:hover{transform:translateY(-2px);}
+
+  .hero .btn{margin-top:34px;}
+
+  /* ---------- Recognition ---------- */
+  .lead{font-size:clamp(24px,4vw,34px);font-weight:700;margin:0 0 28px;max-width:720px;}
+  p{max-width:660px;}
+  .recognition p{margin:0 0 18px;}
+  .recognition .punch{
+    font-family:'Syne',sans-serif;
+    font-weight:700;
+    font-size:clamp(20px,3vw,26px);
+    color:var(--lila);
+    margin-top:28px;
+  }
+
+  /* ---------- Korridor (signature) ---------- */
+  .korridor-section{background:var(--anthrazit);color:var(--offwhite);}
+  .korridor-section .eyebrow{color:var(--limette);}
+  .korridor-section h2{font-size:clamp(30px,5vw,48px);font-weight:800;margin:0 0 40px;max-width:640px;}
+  .korridor-section p{color:rgba(250,249,245,0.82);}
+
+  .korridor{
+    position:relative;
+    height:340px;
+    border-radius:18px;
+    overflow:hidden;
+    margin:40px 0 36px;
+    background:linear-gradient(180deg,#20202a 0%, #14141c 100%);
+  }
+  .wall{position:absolute;top:0;bottom:0;width:52%;background:linear-gradient(90deg,var(--lila) 0%,var(--lila-deep) 100%);}
+  .wall.left{left:0;clip-path:polygon(0 0, 0 100%, 44% 100%, 50% 0);}
+  .wall.right{right:0;background:linear-gradient(270deg,var(--lila) 0%,var(--lila-deep) 100%);clip-path:polygon(100% 0,100% 100%,56% 100%,50% 0);}
+  .wall-label{
+    position:absolute;top:50%;
+    font-family:'Syne',sans-serif;font-weight:700;letter-spacing:0.14em;
+    text-transform:uppercase;font-size:14px;color:var(--offwhite);
+    white-space:nowrap;
+  }
+  .wall-label.left{left:14%;transform:translateY(-50%) rotate(-90deg);transform-origin:left center;}
+  .wall-label.right{right:14%;transform:translateY(-50%) rotate(90deg);transform-origin:right center;}
+  .floor{
+    position:absolute;left:50%;bottom:0;transform:translateX(-50%);
+    width:14%;height:100%;
+    background:linear-gradient(180deg, rgba(196,240,0,0) 0%, rgba(196,240,0,0.14) 55%, rgba(196,240,0,0.32) 100%);
+    clip-path:polygon(42% 0, 58% 0, 100% 100%, 0 100%);
+  }
+  .walker{
+    position:absolute;left:50%;bottom:26px;transform:translateX(-50%);
+    width:16px;height:16px;border-radius:50%;
+    background:var(--limette);box-shadow:0 0 0 6px rgba(196,240,0,0.18);
+  }
+  .korridor .tag-far{position:absolute;top:16px;left:50%;transform:translateX(-50%);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(250,249,245,0.55);font-family:'Syne',sans-serif;font-weight:600;}
+
+  /* ---------- Antrieb ---------- */
+  .close{
+    font-family:'Syne',sans-serif;font-weight:700;
+    font-size:clamp(22px,3.4vw,30px);
+    margin-top:30px;max-width:560px;
+  }
+  .close .lila{color:var(--lila);}
+
+  /* ---------- Mitnehmen ---------- */
+  .list{list-style:none;padding:0;margin:36px 0 0;display:grid;gap:2px;}
+  .list li{
+    background:var(--offwhite-2);
+    padding:24px 26px;
+    border-radius:14px;
+    display:flex;
+    gap:20px;
+    align-items:flex-start;
+  }
+  .list .num{
+    font-family:'Syne',sans-serif;font-weight:800;font-size:22px;
+    color:var(--lila);line-height:1.2;min-width:34px;
+  }
+  .list p{margin:0;max-width:none;}
+
+  /* ---------- Identity ---------- */
+  .no-list{list-style:none;padding:0;margin:0 0 30px;}
+  .no-list li{padding:0 0 10px;color:rgba(43,43,51,0.72);}
+  .no-list li::before{content:"×";color:var(--lila);font-weight:700;margin-right:10px;}
+  .claim{
+    font-family:'Syne',sans-serif;font-weight:800;
+    font-size:clamp(26px,4.6vw,44px);
+    color:var(--lila);line-height:1.1;margin:34px 0 0;max-width:640px;
+  }
+
+  /* ---------- CTA ---------- */
+  .cta-section{background:var(--limette);color:var(--anthrazit);text-align:center;}
+  .cta-section .eyebrow{color:var(--lila);}
+  .cta-section h2{font-size:clamp(30px,5vw,52px);font-weight:800;margin:0 0 20px;}
+  .cta-section p{margin:0 auto 8px;max-width:520px;}
+  .cta-section .btn{margin-top:30px;}
+  .cta-section .fineprint{font-size:14px;color:rgba(43,43,51,0.65);margin-top:18px;}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--anthrazit);color:rgba(250,249,245,0.7);padding:40px 0;font-size:14px;}
+  footer .wrap{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:center;}
+  footer a{color:var(--offwhite);text-decoration:none;border-bottom:1px solid rgba(196,240,0,0.5);padding-bottom:1px;}
+  footer a:hover{border-color:var(--limette);}
+  footer .brand{font-family:'Syne',sans-serif;font-weight:700;color:var(--offwhite);}
+
+  /* ---------- Reveal ---------- */
+  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
+  .reveal.in{opacity:1;transform:none;}
+
+  /* ---------- Consent banner ---------- */
+  #consent{
+    position:fixed;left:0;right:0;bottom:0;z-index:50;
+    background:var(--anthrazit);color:var(--offwhite);
+    padding:16px 20px;font-size:14px;
+    display:none;
+    box-shadow:0 -6px 24px rgba(0,0,0,0.2);
+  }
+  #consent.show{display:block;}
+  #consent .wrap{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;}
+  #consent p{margin:0;max-width:620px;color:rgba(250,249,245,0.82);}
+  #consent .actions{display:flex;gap:10px;flex-shrink:0;}
+  #consent button{
+    font-family:'Syne',sans-serif;font-weight:700;font-size:14px;
+    border-radius:999px;padding:10px 20px;border:none;cursor:pointer;
+  }
+  #consent .accept{background:var(--limette);color:var(--anthrazit);}
+  #consent .decline{background:transparent;color:var(--offwhite);border:1px solid rgba(250,249,245,0.4);}
+
+  @media (max-width:640px){
+    section{padding:64px 0;}
+    .korridor{height:260px;}
+    .wall-label{font-size:12px;}
+    .list li{flex-direction:column;gap:8px;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    .reveal{opacity:1;transform:none;transition:none;}
+    .btn{transition:none;}
   }
-  .reveal.visible { opacity: 1; transform: none; }
-</style>
-    <!-- MailerLite Universal -->
-    <script>
-        (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
-        .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
-        n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
-        (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
-        ml('account', '2344410');
-    </script>
-    <!-- End MailerLite Universal -->
-<style id="nl-consent-style">
-  #nl-consent{position:fixed;left:16px;right:16px;bottom:16px;z-index:99999;max-width:560px;margin:0 auto;
-    background:#18160f;color:#f2f0eb;border:3px solid #c8e832;border-radius:14px;padding:20px 22px;
-    box-shadow:0 10px 40px rgba(0,0,0,.30);display:none;font-family:'Epilogue',system-ui,sans-serif;}
-  #nl-consent.show{display:block;}
-  #nl-consent p{margin:0 0 14px;font-size:.95rem;line-height:1.5;color:#eceae3;}
-  #nl-consent a{color:#c8e832;}
-  #nl-consent .nl-btns{display:flex;gap:10px;flex-wrap:wrap;}
-  #nl-consent button{flex:1 1 140px;cursor:pointer;font-family:'Syne',sans-serif;font-weight:700;font-size:.98rem;
-    border-radius:8px;padding:12px 16px;border:2px solid #c8e832;}
-  #nl-consent .nl-accept{background:#5b2d8e;color:#fff;border-color:#5b2d8e;}
-  #nl-consent .nl-accept:hover{background:#4a2278;}
-  #nl-consent .nl-decline{background:transparent;color:#f2f0eb;}
-  #nl-consent .nl-decline:hover{background:rgba(255,255,255,.08);}
-  #nl-consent button:focus-visible,#nl-consent a:focus-visible{outline:3px solid #5b2d8e;outline-offset:2px;}
 </style>
 </head>
 <body>
 
-<!-- ── HERO ── -->
-<section class="hero">
-  <div class="hero-inner">
-    <span class="badge">⚡ Webinar · Jetzt auf Warteliste</span>
-    <h1>Dopamin<br>statt<br><em>Disziplin.</em></h1>
-    <p class="hero-sub">
-      Du weißt was zu tun ist. Der Tab ist offen. Und trotzdem sitzt du da.<br>
-      <strong>Das ist kein Versagen. Das ist Neurobiologie.</strong><br>
-      Und es gibt einen Weg raus — der zu deinem Gehirn passt.
-    </p>
-    <div class="form-wrap" style="text-align:left;">
-<style type="text/css">
-    #mlb2-41838400.ml-form-embedContainer { box-sizing: border-box; display: table; margin: 0; position: static; width: 100% !important; }
-    #mlb2-41838400.ml-form-embedContainer .ml-form-embedWrapper { background-color: transparent; border: none; box-sizing: border-box; display: block !important; margin: 0; padding: 0; width: 100% !important; }
-    #mlb2-41838400.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody { padding: 0; }
-    #mlb2-41838400.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow { margin: 0 0 10px 0; width: 100%; }
-    #mlb2-41838400.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input { background-color: #ffffff !important; color: #333333 !important; border-color: #ddd9d0; border-radius: 2px !important; border-style: solid !important; border-width: 1.5px !important; font-family: 'Epilogue', sans-serif; font-size: 15px !important; height: auto; line-height: 21px !important; margin: 0; padding: 12px 14px !important; width: 100% !important; box-sizing: border-box !important; }
-    #mlb2-41838400.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input::placeholder { color: #b0ab9f; }
-    #mlb2-41838400.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit { margin: 0 0 8px 0; float: left; width: 100%; }
-    #mlb2-41838400.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button { background-color: #c8e832 !important; border: none !important; border-radius: 2px !important; color: #18160f !important; cursor: pointer; font-family: 'Epilogue', sans-serif !important; font-size: 15px !important; font-weight: 500 !important; padding: 14px !important; width: 100% !important; box-sizing: border-box !important; }
-    #mlb2-41838400.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button:hover { background-color: #a5c020 !important; }
-    #mlb2-41838400.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody { padding: 20px; text-align: center; }
-    #mlb2-41838400.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody h4 { color: #c8e832; font-family: 'Syne', sans-serif; font-size: 1.2rem; font-weight: 800; margin: 0 0 8px 0; }
-    #mlb2-41838400.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody p { color: #c9b8e0; font-size: .9rem; margin: 0; }
-    .ml-form-embedSubmitLoad { display: inline-block; width: 20px; height: 20px; }
-    .ml-form-embedSubmitLoad:after { content: " "; display: block; width: 11px; height: 11px; margin: 1px; border-radius: 50%; border: 4px solid #18160f; border-color: #18160f #18160f #18160f transparent; animation: ml-form-embedSubmitLoad 1.2s linear infinite; }
-    @keyframes ml-form-embedSubmitLoad { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
-    </style>
-    <div id="mlb2-41838400" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-41838400">
-      <div class="ml-form-align-center">
-        <div class="ml-form-embedWrapper embedForm">
-          <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
-            <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2344410/forms/188620995092808793/subscribe" data-code="" method="post" target="_blank">
-              <div class="ml-form-formContent">
-                <div class="ml-form-fieldRow ml-last-item">
-                  <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
-                    <input aria-label="email" aria-required="true" type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="Deine E-Mail-Adresse" autocomplete="email">
-                  </div>
-                </div>
-              </div>
-              <input type="hidden" name="ml-submit" value="1">
-              <div class="ml-form-embedSubmit">
-                <button type="submit" class="primary">Auf die Warteliste eintragen →</button>
-                <button disabled="disabled" style="display:none" type="button" class="loading">
-                  <div class="ml-form-embedSubmitLoad"></div>
-                  <span class="sr-only">Loading...</span>
-                </button>
-              </div>
-              <input type="hidden" name="anticsrf" value="true">
-            </form>
-          </div>
-          <div class="ml-form-successBody row-success" style="display:none">
-            <div class="ml-form-successContent">
-              <h4>✓ Du bist dabei!</h4>
-              <p>Du erfährst als Erste wenn das Webinar startet — und bekommst deinen Frühbucher-Rabatt.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <script>
-      function ml_webform_success_41838400() {
-        var $ = ml_jQuery || jQuery;
-        $('.ml-subscribe-form-41838400 .row-success').show();
-        $('.ml-subscribe-form-41838400 .row-form').hide();
-        if (window.__nlConsent === true && typeof fbq === 'function') {
-          fbq('track', 'Lead', { content_name: 'Warteliste Dopamin statt Disziplin' });
-        }
-      }
-    </script>
-    <script src="https://groot.mailerlite.com/js/w/webforms.min.js?vb397d78ebaa8a0f631d35384c46d781b" type="text/javascript"></script>
-    <script>fetch("https://assets.mailerlite.com/jsonp/2344410/forms/188620995092808793/takel")</script>
-      <p class="form-note" style="margin-top:.8rem;">Kein Spam. Jederzeit abmeldbar. Du bekommst sofort erste Inhalte.</p>
-    </div>
+<!-- ===================== HERO ===================== -->
+<header class="hero">
+  <div class="wrap">
+    <h1><span class="dop">Dopamin</span> <span class="statt">statt</span> <span class="disz">Disziplin</span></h1>
+    <p class="sub">Das Webinar für neurodivergente Gehirne.</p>
+    <p class="kicker">Warum Disziplin bei dir nicht hält. Und was stattdessen trägt.</p>
+    <a class="btn btn-primary" href="#warteliste">Auf die Warteliste</a>
+  </div>
+</header>
+
+<!-- ===================== KENNST DU DAS ===================== -->
+<section class="recognition">
+  <div class="wrap reveal">
+    <p class="eyebrow">Kennst du das</p>
+    <p class="lead">Du weißt genau, was zu tun ist. Du willst es sogar. Und trotzdem kommst du nicht los.</p>
+    <p>Manchmal, weil alles zu viel ist. Zu laut, zu dicht, zu schnell, und dein System macht dicht.</p>
+    <p>Manchmal, weil nichts anspringt. Die Aufgabe liegt da, aber sie ist zu zäh, um überhaupt einzurasten, und du landest bei allem außer ihr.</p>
+    <p class="punch">Beides fühlt sich an wie Versagen. Dabei sind es zwei verschiedene Wände.</p>
   </div>
 </section>
 
-<!-- ── PAIN ── -->
-<section class="pain">
-  <div class="pain-inner">
-    <span class="section-label reveal">Kennst du das?</span>
-    <div class="pain-text reveal">
-      <p>Der Tab ist offen. Die Aufgabe wartet. Du weißt genau was zu tun ist — und vielleicht ist es nicht mal besonders schwierig. Und trotzdem sitzt du da. Scrollst. Stehst auf. Setzt dich wieder hin.</p>
-      <p>Du redest dir zu. Du schimpfst mit dir. Du versprichst dir selbst dass du <em>jetzt, wirklich jetzt</em> anfängst.</p>
-      <p>Vielleicht passiert dir das täglich. Vielleicht schon seit Jahren. Vielleicht hast du dir so oft gesagt dass du einfach fauler bist als andere. Undisziplinierter. <strong>Weniger erwachsen irgendwie.</strong></p>
-      <p>Aber was wenn das alles nicht stimmt?</p>
+<!-- ===================== SOG-KORRIDOR (signature) ===================== -->
+<section class="korridor-section">
+  <div class="wrap reveal">
+    <p class="eyebrow">Der Sog-Korridor</p>
+    <h2>Zwischen den beiden Wänden liegt ein schmaler Gang.</h2>
+
+    <div class="korridor" aria-hidden="true">
+      <span class="tag-far">Sog</span>
+      <div class="wall left"></div>
+      <div class="wall right"></div>
+      <span class="wall-label left">Überforderung</span>
+      <span class="wall-label right">Unterforderung</span>
+      <div class="floor"></div>
+      <div class="walker"></div>
     </div>
-    <div class="pain-statement reveal">
-      <p>Vielleicht fehlt dir nicht Disziplin.<br>Vielleicht fehlt deinem Gehirn der richtige Treibstoff.</p>
-    </div>
+
+    <p>Kippst du nach links, ist alles zu viel. Du machst zu, ziehst dich zurück, bringst nichts mehr raus.</p>
+    <p>Kippst du nach rechts, ist alles zu wenig. Es zieht dich nichts, und du kommst nicht in Bewegung.</p>
+    <p>Was dich durch diesen Korridor bewegt, ist Dopamin. Dein Antrieb. Und der funktioniert bei neurodivergenten Gehirnen anders.</p>
   </div>
 </section>
 
-<!-- ── WHY ── -->
-<section class="why">
-  <div class="why-inner">
-    <div>
-      <span class="section-label reveal">Warum Disziplin nicht reicht</span>
-      <h2 class="reveal">Dein Gehirn springt nicht auf <em>Wichtigkeit</em> an.</h2>
-      <p class="reveal">Dopamin ist nicht das Glückshormon — es ist das Antriebshormon. Wenn es fehlt, bewegt sich nichts. Nicht weil du versagst. Sondern weil dein neurodivergentes Gehirn anders gebaut ist.</p>
-      <p class="reveal">Bei neurotypischen Menschen läuft Dopamin gleichmäßig — auch für langweilige Aufgaben reicht der Antrieb. Bei dir nicht. <strong>Dein Gehirn braucht andere Signale.</strong> Und das ist erlernbar.</p>
-    </div>
-    <div>
-      <ul class="why-list reveal">
-        <li>Du hast für manche Dinge endlos Energie — und für andere keinen einzigen Schritt</li>
-        <li>Klassische Produktivitätstipps funktionieren bei dir einfach nicht</li>
-        <li>Du arbeitest oft erst unter letzter-Minute-Druck wirklich</li>
-        <li>Interesse und Neuheit fühlen sich wie Treibstoff an — Pflicht nicht</li>
-        <li>Du hast jahrelang versucht dich zu zwingen — und es hat nie dauerhaft geholfen</li>
-      </ul>
-    </div>
+<!-- ===================== ANTRIEB ===================== -->
+<section class="antrieb">
+  <div class="wrap reveal">
+    <p class="eyebrow">Dein Antrieb tickt anders</p>
+    <p>Dopamin gilt als Belohnung. Das ist die halbe Geschichte. Es ist zuerst einmal Antrieb: das, was dich überhaupt in Bewegung bringt, lange bevor eine Belohnung kommt.</p>
+    <p>Bei einem neurodivergenten Dopaminsystem springt dieser Antrieb nicht auf Wichtigkeit an. Er springt auf Interesse, auf Neuheit, auf Dringlichkeit. Deshalb hast du für manches endlos Kapazität und für anderes keinen einzigen Schritt.</p>
+    <p>Disziplin arbeitet gegen die falsche Wand. Sie sagt dir, du sollst dich mehr zusammenreißen, während dein System ein ganz anderes Signal braucht.</p>
+    <p class="close">Das Problem war nie dein Einsatz. <span class="lila">Es war die Anleitung.</span></p>
   </div>
 </section>
 
-<!-- ── WHAT YOU LEARN ── -->
-<section class="learn">
-  <div class="learn-inner">
-    <span class="section-label reveal">Im Webinar lernst du</span>
-    <h2 class="reveal">90 Minuten.<br><em>Kein Motivationsvortrag.</em></h2>
-    <div class="learn-items">
-      <div class="learn-item reveal">
-        <span class="learn-num">01</span>
-        <div>
-          <p class="learn-title">Warum dein ND-Gehirn nicht auf Wichtigkeit anspringt</p>
-          <p class="learn-desc">Was dein Gehirn wirklich braucht — und warum Willenskraft das falsche Werkzeug ist.</p>
-        </div>
-      </div>
-      <div class="learn-item reveal">
-        <span class="learn-num">02</span>
-        <div>
-          <p class="learn-title">Dopamin bewusst erzeugen — vor, während und nach einer Aufgabe</p>
-          <p class="learn-desc">Konkrete Strategien die mit deinem Nervensystem arbeiten, nicht gegen es.</p>
-        </div>
-      </div>
-      <div class="learn-item reveal">
-        <span class="learn-num">03</span>
-        <div>
-          <p class="learn-title">Warum schnelle Dopaminquellen langfristig erschöpfen</p>
-          <p class="learn-desc">Social Media, Zucker, Ablenkung — warum sie kurzfristig helfen und langfristig schaden. Und was stattdessen wirklich trägt.</p>
-        </div>
-      </div>
-      <div class="learn-item reveal">
-        <span class="learn-num">04</span>
-        <div>
-          <p class="learn-title">Wie ein realistischer ND-Alltag aussehen kann</p>
-          <p class="learn-desc">Der sich nicht wie dauernder Kampf anfühlt — sondern wie ein System das zu dir passt.</p>
-        </div>
-      </div>
-      <div class="learn-item reveal">
-        <span class="learn-num">05</span>
-        <div>
-          <p class="learn-title">Dein persönliches Dopamin-Profil</p>
-          <p class="learn-desc">Du baust dein eigenes System — passend zu deinem Gehirn, nicht zu einem neurotypischen Durchschnittsgehirn.</p>
-        </div>
-      </div>
-    </div>
+<!-- ===================== WAS DU MITNIMMST ===================== -->
+<section class="mitnehmen">
+  <div class="wrap reveal">
+    <p class="eyebrow">Was du im Webinar mitnimmst</p>
+    <ul class="list">
+      <li><span class="num">01</span><p>Worauf dein Antrieb wirklich anspringt (Interesse statt Wichtigkeit) und wie du das nutzt, statt dagegen anzurennen.</p></li>
+      <li><span class="num">02</span><p>Wie du anfängst, wenn die Aufgabe zäh ist. Ein paar konkrete Handgriffe, die deinen Antrieb einrasten lassen.</p></li>
+      <li><span class="num">03</span><p>Wie du dranbleibst, ohne dich zu überfordern. Und warum schnelle Dopaminquellen wie Zucker oder Social Media dich langfristig leerer machen.</p></li>
+      <li><span class="num">04</span><p>Wie du steuerst, wenn der Sog wieder kippt. Ein Werkzeug für die Tage, an denen nichts läuft.</p></li>
+      <li><span class="num">05</span><p>Dein eigenes Dopamin-Profil. Ein einfaches System, das sich nach deinem Gehirn richtet, nicht nach einem Durchschnittsgehirn.</p></li>
+    </ul>
   </div>
 </section>
 
-<!-- ── INCLUDED ── -->
-<section class="included">
-  <div class="included-inner">
-    <span class="section-label">Was du bekommst</span>
-    <div class="incl-card reveal">
-      <span class="incl-icon">🎥</span>
-      <p class="incl-title">90 Min. Video-Webinar</p>
-      <p class="incl-desc">Schau wann und wo du willst — kein Live-Termin, kein Zeitdruck. Unbegrenzter Zugang.</p>
-    </div>
-    <div class="incl-card reveal">
-      <span class="incl-icon">📄</span>
-      <p class="incl-title">Workbook PDF</p>
-      <p class="incl-desc">Zum Mitmachen, Ausfüllen und Behalten. Dein persönliches Dopamin-Profil zum Rausarbeiten.</p>
-    </div>
-    <div class="incl-card reveal">
-      <span class="incl-icon">⚡</span>
-      <p class="incl-title">Sofort anwendbar</p>
-      <p class="incl-desc">Kein Theorie-Overkill. Alles direkt umsetzbar — für deinen echten Alltag.</p>
-    </div>
+<!-- ===================== KEIN MOTIVATIONSVORTRAG ===================== -->
+<section class="identity">
+  <div class="wrap reveal">
+    <p class="eyebrow">Kein Motivationsvortrag</p>
+    <ul class="no-list">
+      <li>Kein erhobener Zeigefinger.</li>
+      <li>Kein „du schaffst das, wenn du nur willst".</li>
+      <li>Kein Reframing, das dir die Verantwortung für ein System-Problem zurückschiebt.</li>
+    </ul>
+    <p>Das Webinar kommt von jemandem, die es selbst kennt. Ich bin Sabrina. Ich wurde spät diagnostiziert. Davor: jahrelang das Gefühl, dass vieles schwerer ist, als es sein sollte, und keine Erklärung dafür.</p>
+    <p>Heute weiß ich, wie mein Gehirn tickt, und ich arbeite mit ihm statt gegen es. Genau das gebe ich dir im Webinar weiter.</p>
+    <p class="claim">Nicht der Fehler im System. Der Beweis dafür.</p>
   </div>
 </section>
 
-<!-- ── FOR WHOM ── -->
-<section class="forwhom">
-  <div class="forwhom-inner">
-    <div>
-      <span class="section-label reveal">Für wen</span>
-      <h2 class="reveal">Für dich, wenn dein<br>Gehirn <em>anders</em> tickt.</h2>
-      <ul class="fw-list reveal">
-        <li>Du hast ADHS, Autismus oder beides — oder erkennst dich einfach darin</li>
-        <li>Du hast genug davon dich zu zwingen und trotzdem nicht voranzukommen</li>
-        <li>Klassische Produktivitätsmethoden haben bei dir nie wirklich funktioniert</li>
-        <li>Du willst endlich verstehen wie dein Gehirn wirklich funktioniert</li>
-        <li>Du bist bereit ein System zu bauen das zu dir passt — nicht zu anderen</li>
-        <li>Keine Diagnose nötig — wenn du dich erkennst, ist dieses Webinar für dich</li>
-      </ul>
-    </div>
-    <div class="fw-not reveal">
-      <span class="fw-not-label">Das ist das hier nicht</span>
-      <ul>
-        <li>Kein Motivationsvortrag mit leeren Versprechen</li>
-        <li>Kein erhobener Zeigefinger</li>
-        <li>Kein „du schaffst das wenn du nur willst"</li>
-        <li>Keine Tipps die Disziplin voraussetzen</li>
-        <li>Keine KI-generierten Inhalte</li>
-      </ul>
-    </div>
+<!-- ===================== CTA ===================== -->
+<section class="cta-section" id="warteliste">
+  <div class="wrap reveal">
+    <p class="eyebrow">Warteliste</p>
+    <h2>Trag dich ein.</h2>
+    <p>Das Webinar ist gerade in Produktion. Wer jetzt auf der Warteliste steht, erfährt als Erste, wenn es losgeht.</p>
+    <p>Und bekommt den Früh-Bucher-Preis, bevor das Webinar dauerhaft 49&thinsp;€ kostet.</p>
+    <!-- Button-Ziel auf deine MailerLite-Warteliste setzen -->
+    <a class="btn btn-primary" href="#" data-mailerlite="WARTELISTE_URL_HIER">Auf die Warteliste</a>
+    <p class="fineprint">Kein Spam. Nur eine Nachricht, wenn es losgeht.</p>
   </div>
 </section>
 
-<!-- ── SABRINA ── -->
-<section class="sabrina">
-  <div class="sabrina-inner">
-    <span class="section-label reveal">Wer steckt dahinter</span>
-    <h2 class="reveal">Ich bin Sabrina.<br>Ich kenne das von innen.</h2>
-    <p class="reveal">Ich wurde mit 35 Jahren als neurodivergent diagnostiziert. Davor wusste ich mein ganzes Leben lang nicht warum vieles so viel schwerer war als für andere. <strong>Jahrelange Therapie. Viele Fragen. Wenig Antworten.</strong></p>
-    <p class="reveal">Heute weiß ich wie mein Gehirn wirklich funktioniert. Und ich arbeite mit ihm statt gegen es. Das ist es was ich dir in diesem Webinar weitergebe — nicht aus Büchern, sondern aus gelebter Erfahrung.</p>
-    <p class="reveal">Ich verkaufe nichts hinter dem ich nicht selbst stehe. Keine leeren Versprechen. Kein Produkt von der Stange.</p>
-    <div class="sabrina-quote reveal">
-      <p>Dieses Webinar ist das was ich mir selbst gewünscht hätte — bevor ich jahrelang den falschen Schlüssel benutzt habe.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ── CTA ── -->
-<section class="cta-section">
-  <div class="cta-inner">
-    <span class="section-label">Warteliste</span>
-    <h2 class="reveal">Sei dabei wenn<br>es <em>startet.</em></h2>
-    <p class="reveal">Das Webinar ist noch in Produktion. Wer sich jetzt einträgt bekommt als Erste Bescheid — und einen <strong>exklusiven Frühbucher-Rabatt.</strong></p>
-
-    <div class="perks reveal">
-      <div class="perk">Erfährst als Erste wenn das Webinar verfügbar ist</div>
-      <div class="perk">Bekommst einen exklusiven Frühbucher-Rabatt (Normalpreis 49€)</div>
-      <div class="perk">Erhältst in der Zwischenzeit bereits hilfreiche Inhalte per Mail</div>
-    </div>
-
-    <div class="form-wrap">
-<style type="text/css">
-    #mlb2-41838400.ml-form-embedContainer { box-sizing: border-box; display: table; margin: 0; position: static; width: 100% !important; }
-    #mlb2-41838400.ml-form-embedContainer .ml-form-embedWrapper { background-color: transparent; border: none; box-sizing: border-box; display: block !important; margin: 0; padding: 0; width: 100% !important; }
-    #mlb2-41838400.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody { padding: 0; }
-    #mlb2-41838400.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow { margin: 0 0 10px 0; width: 100%; }
-    #mlb2-41838400.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input { background-color: #ffffff !important; color: #333333 !important; border-color: #ddd9d0; border-radius: 2px !important; border-style: solid !important; border-width: 1.5px !important; font-family: 'Epilogue', sans-serif; font-size: 15px !important; height: auto; line-height: 21px !important; margin: 0; padding: 12px 14px !important; width: 100% !important; box-sizing: border-box !important; }
-    #mlb2-41838400.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-fieldRow input::placeholder { color: #b0ab9f; }
-    #mlb2-41838400.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit { margin: 0 0 8px 0; float: left; width: 100%; }
-    #mlb2-41838400.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button { background-color: #c8e832 !important; border: none !important; border-radius: 2px !important; color: #18160f !important; cursor: pointer; font-family: 'Epilogue', sans-serif !important; font-size: 15px !important; font-weight: 500 !important; padding: 14px !important; width: 100% !important; box-sizing: border-box !important; }
-    #mlb2-41838400.ml-form-embedContainer .ml-form-embedWrapper .ml-form-embedBody .ml-form-embedSubmit button:hover { background-color: #a5c020 !important; }
-    #mlb2-41838400.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody { padding: 20px; text-align: center; }
-    #mlb2-41838400.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody h4 { color: #c8e832; font-family: 'Syne', sans-serif; font-size: 1.2rem; font-weight: 800; margin: 0 0 8px 0; }
-    #mlb2-41838400.ml-form-embedContainer .ml-form-embedWrapper .ml-form-successBody p { color: #c9b8e0; font-size: .9rem; margin: 0; }
-    .ml-form-embedSubmitLoad { display: inline-block; width: 20px; height: 20px; }
-    .ml-form-embedSubmitLoad:after { content: " "; display: block; width: 11px; height: 11px; margin: 1px; border-radius: 50%; border: 4px solid #18160f; border-color: #18160f #18160f #18160f transparent; animation: ml-form-embedSubmitLoad 1.2s linear infinite; }
-    @keyframes ml-form-embedSubmitLoad { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
-    .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); border: 0; }
-    </style>
-    <div id="mlb2-41838400" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-41838400">
-      <div class="ml-form-align-center">
-        <div class="ml-form-embedWrapper embedForm">
-          <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
-            <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2344410/forms/188620995092808793/subscribe" data-code="" method="post" target="_blank">
-              <div class="ml-form-formContent">
-                <div class="ml-form-fieldRow ml-last-item">
-                  <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
-                    <input aria-label="email" aria-required="true" type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="Deine E-Mail-Adresse" autocomplete="email">
-                  </div>
-                </div>
-              </div>
-              <input type="hidden" name="ml-submit" value="1">
-              <div class="ml-form-embedSubmit">
-                <button type="submit" class="primary">Auf die Warteliste eintragen →</button>
-                <button disabled="disabled" style="display:none" type="button" class="loading">
-                  <div class="ml-form-embedSubmitLoad"></div>
-                  <span class="sr-only">Loading...</span>
-                </button>
-              </div>
-              <input type="hidden" name="anticsrf" value="true">
-            </form>
-          </div>
-          <div class="ml-form-successBody row-success" style="display:none">
-            <div class="ml-form-successContent">
-              <h4>✓ Du bist dabei!</h4>
-              <p>Du erfährst als Erste wenn das Webinar startet — und bekommst deinen Frühbucher-Rabatt.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <script>
-      function ml_webform_success_41838400() {
-        var $ = ml_jQuery || jQuery;
-        $('.ml-subscribe-form-41838400 .row-success').show();
-        $('.ml-subscribe-form-41838400 .row-form').hide();
-        if (window.__nlConsent === true && typeof fbq === 'function') {
-          fbq('track', 'Lead', { content_name: 'Warteliste Dopamin statt Disziplin' });
-        }
-      }
-    </script>
-    <script src="https://groot.mailerlite.com/js/w/webforms.min.js?vb397d78ebaa8a0f631d35384c46d781b" type="text/javascript"></script>
-    <script>fetch("https://assets.mailerlite.com/jsonp/2344410/forms/188620995092808793/takel")</script>
-      <p class="form-note">Kein Spam. Jederzeit abmeldbar.</p>
-    </div>
-
-    <div class="price-note reveal">
-      Normalpreis nach Launch: <strong>49€</strong> · Frühbucher bekommen einen exklusiven Rabatt
-    </div>
-  </div>
-</section>
-
+<!-- ===================== FOOTER ===================== -->
 <footer>
-  © 2026 · Neurodiversleben · Sabrina · Alle Rechte vorbehalten
+  <div class="wrap">
+    <span class="brand">neurodiversleben</span>
+    <span>
+      <a href="/impressum/">Impressum</a> &nbsp;·&nbsp;
+      <a href="/datenschutz/">Datenschutz</a>
+    </span>
+  </div>
 </footer>
 
-<script>
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => {
-      if (e.isIntersecting) {
-        e.target.classList.add('visible');
-        observer.unobserve(e.target);
-      }
-    });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-</script>
-<!-- ============ CONSENT BANNER + META PIXEL (gated) ============ -->
-<div id="nl-consent" role="dialog" aria-live="polite" aria-label="Cookie-Einwilligung">
-  <p>Ich nutze einen Marketing-Pixel (Meta), um zu sehen, ob meine Anzeigen funktionieren. Der l&auml;dt nur, wenn du zustimmst. Mehr dazu in der <a href="#datenschutz">Datenschutzerkl&auml;rung</a>.</p>
-  <div class="nl-btns">
-    <button type="button" class="nl-accept" id="nl-accept">Akzeptieren</button>
-    <button type="button" class="nl-decline" id="nl-decline">Nur Notwendige</button>
+<!-- ===================== CONSENT + META PIXEL ===================== -->
+<div id="consent" role="dialog" aria-label="Cookie-Einwilligung">
+  <div class="wrap">
+    <p>Diese Seite kann den Meta Pixel laden, um Reichweite zu messen. Nur mit deiner Zustimmung. Details im <a href="/datenschutz/" style="color:var(--limette)">Datenschutz</a>.</p>
+    <div class="actions">
+      <button class="decline" id="consent-decline">Ablehnen</button>
+      <button class="accept" id="consent-accept">Akzeptieren</button>
+    </div>
   </div>
 </div>
+
 <script>
-(function(){
-  var PIXEL_ID='1850603119282068', KEY='nl_pixel_consent', PRODUCT='Warteliste Dopamin statt Disziplin';
-  window.__nlConsent=false;
-  window.nlLoadPixel=function(){
-    if(window.fbq) return;
-    !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-    n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-    n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-    t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-    document,'script','https://connect.facebook.net/en_US/fbevents.js');
-    fbq('init', PIXEL_ID); fbq('track','PageView');
-    window.__nlConsent=true;
-  };
-  function hide(){var b=document.getElementById('nl-consent');if(b)b.classList.remove('show');}
-  function show(){var b=document.getElementById('nl-consent');if(b)b.classList.add('show');}
-  function grant(){try{localStorage.setItem(KEY,'granted');}catch(e){}hide();window.nlLoadPixel();}
-  function deny(){try{localStorage.setItem(KEY,'denied');}catch(e){}hide();}
-  var saved=null;try{saved=localStorage.getItem(KEY);}catch(e){}
-  if(saved==='granted'){window.nlLoadPixel();}
-  function init(){
-    var a=document.getElementById('nl-accept'),d=document.getElementById('nl-decline');
-    if(a)a.addEventListener('click',grant);
-    if(d)d.addEventListener('click',deny);
-    if(saved!=='granted'&&saved!=='denied')show();
-    // Gumroad-Kauf -> InitiateCheckout (nur bei Consent; greift nur, wo Gumroad-Links existieren)
-    var gl=document.querySelectorAll('a[href*="gumroad.com"]');
-    for(var i=0;i<gl.length;i++){
-      gl[i].addEventListener('click',function(){
-        if(window.__nlConsent===true&&typeof fbq==='function'){
-          fbq('track','InitiateCheckout',{content_name:PRODUCT});
-        }
-      });
+  // ---------- Scroll reveal ----------
+  (function(){
+    var els = document.querySelectorAll('.reveal');
+    if(!('IntersectionObserver' in window)){ els.forEach(function(e){e.classList.add('in');}); return; }
+    var io = new IntersectionObserver(function(entries){
+      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
+    },{threshold:0.15});
+    els.forEach(function(e){ io.observe(e); });
+  })();
+
+  // ---------- Consent-gated Meta Pixel ----------
+  // Pixel ID und Consent-Key wie auf den anderen neurodiversleben-Seiten.
+  (function(){
+    var KEY = 'nl_pixel_consent';
+    var PIXEL_ID = '1850603119282068';
+    var banner = document.getElementById('consent');
+
+    function stored(){ try { return localStorage.getItem(KEY); } catch(e){ return null; } }
+    function save(v){ try { localStorage.setItem(KEY, v); } catch(e){} }
+
+    function loadPixel(){
+      if(window._nlPixelLoaded) return;
+      window._nlPixelLoaded = true;
+      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script',
+      'https://connect.facebook.net/en_US/fbevents.js');
+      fbq('init', PIXEL_ID);
+      fbq('track', 'PageView');
     }
-  }
-  if(document.readyState!=='loading')init();
-  else document.addEventListener('DOMContentLoaded',init);
-})();
+
+    var choice = stored();
+    if(choice === 'granted'){ loadPixel(); }
+    else if(choice !== 'denied'){ banner.classList.add('show'); }
+
+    document.getElementById('consent-accept').addEventListener('click', function(){
+      save('granted'); banner.classList.remove('show'); loadPixel();
+    });
+    document.getElementById('consent-decline').addEventListener('click', function(){
+      save('denied'); banner.classList.remove('show');
+    });
+  })();
 </script>
+
 </body>
 </html>
