@@ -277,6 +277,38 @@
     .btn{transition:none;}
     .korridor .cat{animation:none;}
   }
+  /* ---- MailerLite-Warteliste-Formular, an Marke angepasst ---- */
+  #mlb2-41838400{max-width:440px;margin:14px auto 0;}
+  #mlb2-41838400 .ml-form-embedWrapper{background:transparent;width:100%;max-width:440px;display:block;}
+  #mlb2-41838400 .ml-form-embedBody{padding:0;}
+  #mlb2-41838400 .ml-form-embedContent{margin:0;}
+  #mlb2-41838400 .ml-form-formContent{margin:0;}
+  #mlb2-41838400 .ml-form-fieldRow{margin:0 0 12px 0;}
+  #mlb2-41838400 input[type=email]{
+    width:100%;box-sizing:border-box;
+    background:#fff;color:var(--anthrazit);
+    border:2px solid rgba(43,43,51,0.15);border-radius:999px;
+    font-family:'Epilogue',system-ui,sans-serif;font-size:16px;
+    padding:15px 22px;text-align:center;
+  }
+  #mlb2-41838400 input[type=email]::placeholder{color:rgba(43,43,51,0.5);}
+  #mlb2-41838400 input[type=email]:focus{outline:none;border-color:var(--lila);}
+  #mlb2-41838400 .ml-form-embedSubmit{margin:0;}
+  #mlb2-41838400 .ml-form-embedSubmit button.primary{
+    width:100%;cursor:pointer;
+    background:var(--lila);color:var(--offwhite);
+    border:2px solid transparent;border-radius:999px;
+    font-family:'Epilogue',system-ui,sans-serif;font-weight:700;font-size:16px;
+    padding:16px 30px;
+    box-shadow:0 8px 24px rgba(91,22,214,0.28);
+    transition:transform .15s ease, background .15s ease;
+  }
+  #mlb2-41838400 .ml-form-embedSubmit button.primary:hover{transform:translateY(-2px);background:var(--lila-deep);}
+  #mlb2-41838400 .ml-form-successContent h4{color:var(--lila);font-family:'Syne',system-ui,sans-serif;margin:0 0 8px;}
+  #mlb2-41838400 .ml-form-successContent p{color:var(--anthrazit);font-family:'Epilogue',system-ui,sans-serif;margin:0;}
+  .ml-form-embedSubmitLoad{display:inline-block;width:20px;height:20px;}
+  .ml-form-embedSubmitLoad:after{content:" ";display:block;width:11px;height:11px;margin:1px;border-radius:50%;border:4px solid #fff;border-color:#fff #fff #fff transparent;animation:ml-load 1.2s linear infinite;}
+  @keyframes ml-load{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
 </style>
 </head>
 <body>
@@ -389,8 +421,39 @@
     <h2>Trag dich ein.</h2>
     <p>Der Kurs ist gerade in Produktion. Wer jetzt auf der Warteliste steht, erfährt als Erste, wenn es losgeht.</p>
     <p>Und bekommt den Frühbucher:innen-Rabatt, bevor der Kurs regulär läuft.</p>
-    <!-- Button-Ziel auf deine MailerLite-Warteliste setzen -->
-    <a class="btn btn-primary" href="#" data-mailerlite="WARTELISTE_URL_HIER">Auf die Warteliste</a>
+    <!-- MailerLite-Warteliste-Formular (Konto 2344410, Formular 188620995092808793) -->
+    <div id="mlb2-41838400" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-41838400">
+      <div class="ml-form-align-center">
+        <div class="ml-form-embedWrapper embedForm">
+          <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
+            <div class="ml-form-embedContent"></div>
+            <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2344410/forms/188620995092808793/subscribe" data-code="" method="post" target="_blank">
+              <div class="ml-form-formContent">
+                <div class="ml-form-fieldRow ml-last-item">
+                  <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                    <input aria-label="email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="deine@email.at" autocomplete="email">
+                  </div>
+                </div>
+              </div>
+              <input type="hidden" name="ml-submit" value="1">
+              <div class="ml-form-embedSubmit">
+                <button type="submit" class="primary">Jetzt anmelden und Frühbucher:innen-Rabatt sichern</button>
+                <button disabled="disabled" style="display:none;" type="button" class="loading">
+                  <div class="ml-form-embedSubmitLoad"></div><span class="sr-only">Lädt…</span>
+                </button>
+              </div>
+              <input type="hidden" name="anticsrf" value="true">
+            </form>
+          </div>
+          <div class="ml-form-successBody row-success" style="display:none">
+            <div class="ml-form-successContent">
+              <h4>Fast geschafft!</h4>
+              <p>Schau in dein Postfach und bestätige die Anmeldung — dann stehst du auf der Warteliste.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
     <p class="fineprint">Kein Spam. Nur eine Nachricht, wenn es losgeht.</p>
     <p class="fineprint">Fragen? Du kannst mich jederzeit erreichen. <a href="mailto:neurodiversleben@gmail.com">Schreib mir</a>.</p>
   </div>
@@ -464,6 +527,20 @@
     });
   })();
 </script>
+
+<!-- ===================== MAILERLITE WEBFORM ===================== -->
+<script>
+  // Erfolgs-Callback: zeigt die Danke-Nachricht und feuert das Lead-Event
+  // (fbq existiert nur, wenn der Pixel per Zustimmung geladen wurde -> automatisch consent-gated)
+  function ml_webform_success_41838400(){
+    var $ = window.ml_jQuery || window.jQuery;
+    $('.ml-subscribe-form-41838400 .row-success').show();
+    $('.ml-subscribe-form-41838400 .row-form').hide();
+    if(window.fbq){ fbq('track', 'Lead'); }
+  }
+</script>
+<script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519" type="text/javascript"></script>
+<script>fetch("https://assets.mailerlite.com/jsonp/2344410/forms/188620995092808793/takel").catch(function(){});</script>
 
 </body>
 </html>
