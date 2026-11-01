@@ -1,346 +1,95 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="de">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Dopamin statt Disziplin</title>
-<meta name="description" content="Der Kurs für neurodivergente Gehirne. Warum Disziplin bei dir nicht hält und was stattdessen trägt." />
-
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Epilogue:wght@400;500;600&display=swap" rel="stylesheet">
-
-<style>
-  :root{
-    --lila:#5B16D6;
-    --lila-deep:#3D0E92;
-    --limette:#C4F000;
-    --anthrazit:#2B2B33;
-    --offwhite:#FAF9F5;
-    --offwhite-2:#F1EFE8;
-    --maxw:960px;
-  }
-
-  *{box-sizing:border-box;}
-  html{scroll-behavior:smooth;}
-  body{
-    margin:0;
-    background:var(--offwhite);
-    color:var(--anthrazit);
-    font-family:'Epilogue',system-ui,sans-serif;
-    font-weight:400;
-    line-height:1.6;
-    font-size:18px;
-    -webkit-font-smoothing:antialiased;
-  }
-
-  h1,h2,h3,.display{font-family:'Syne',sans-serif;line-height:1.05;letter-spacing:-0.01em;}
-
-  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;}
-
-  section{padding:88px 0;}
-  section + section{border-top:1px solid rgba(43,43,51,0.08);}
-
-  .eyebrow{
-    font-family:'Syne',sans-serif;
-    font-weight:700;
-    font-size:13px;
-    letter-spacing:0.18em;
-    text-transform:uppercase;
-    color:var(--lila);
-    margin:0 0 18px;
-  }
-
-  /* ---------- Hero ---------- */
-  .hero{
-    padding:96px 0 80px;
-    background:
-      radial-gradient(120% 90% at 50% -10%, rgba(91,22,214,0.06), transparent 60%),
-      var(--offwhite);
-  }
-  .hero h1{
-    font-weight:800;
-    font-size:clamp(44px,9vw,92px);
-    margin:0 0 6px;
-  }
-  .hero h1 .dop{color:var(--lila);}
-  .hero h1 .statt{
-    display:inline-block;
-    font-weight:600;
-    color:var(--anthrazit);
-    opacity:0.55;
-    font-size:0.62em;
-    transform:translateY(-0.18em);
-    padding:0 0.12em;
-  }
-  .hero h1 .disz{
-    color:var(--anthrazit);
-    opacity:0.35;
-    text-decoration:line-through;
-    text-decoration-thickness:3px;
-    text-decoration-color:var(--limette);
-  }
-  .hero .kurs-tag{
-    display:inline-flex;
-    align-items:center;
-    gap:8px;
-    font-family:'Syne',sans-serif;
-    font-weight:700;
-    font-size:13px;
-    letter-spacing:0.12em;
-    text-transform:uppercase;
-    color:var(--lila);
-    background:rgba(196,240,0,0.4);
-    padding:7px 15px;
-    border-radius:999px;
-    margin:20px 0 0;
-  }
-  .hero .kurs-tag .paw{width:18px;height:18px;flex-shrink:0;}
-  .hero .kurs-tag .paw ellipse,.hero .kurs-tag .paw path{fill:var(--lila);}
-  .hero .sub{
-    font-family:'Syne',sans-serif;
-    font-weight:600;
-    font-size:clamp(18px,2.4vw,24px);
-    max-width:640px;
-    margin:20px 0 0;
-  }
-  .hero .kicker{
-    margin:14px 0 0;
-    font-size:17px;
-    color:rgba(43,43,51,0.7);
-    max-width:560px;
-  }
-
-  /* ---------- Buttons ---------- */
-  .btn{
-    display:inline-block;
-    font-family:'Syne',sans-serif;
-    font-weight:700;
-    font-size:17px;
-    text-decoration:none;
-    padding:16px 30px;
-    border-radius:999px;
-    cursor:pointer;
-    border:2px solid transparent;
-    transition:transform .15s ease, background .15s ease, box-shadow .15s ease;
-  }
-  .btn-primary{
-    background:var(--lila);
-    color:var(--offwhite);
-    box-shadow:0 8px 24px rgba(91,22,214,0.28);
-  }
-  .btn-primary:hover{transform:translateY(-2px);background:var(--lila-deep);}
-  .btn-lime{background:var(--limette);color:var(--anthrazit);box-shadow:0 8px 24px rgba(196,240,0,0.35);}
-  .btn-lime:hover{transform:translateY(-2px);}
-
-  .hero .btn{margin-top:34px;}
-
-  /* ---------- Recognition ---------- */
-  .lead{font-size:clamp(24px,4vw,34px);font-weight:700;margin:0 0 28px;max-width:720px;}
-  p{max-width:660px;}
-  .recognition p{margin:0 0 18px;}
-  .recognition .punch{
-    font-family:'Syne',sans-serif;
-    font-weight:700;
-    font-size:clamp(20px,3vw,26px);
-    color:var(--lila);
-    margin-top:28px;
-  }
-
-  /* ---------- Korridor (signature) ---------- */
-  .korridor-section{background:var(--anthrazit);color:var(--offwhite);}
-  .korridor-section .eyebrow{color:var(--limette);}
-  .korridor-section h2{font-size:clamp(30px,5vw,48px);font-weight:800;margin:0 0 40px;max-width:640px;}
-  .korridor-section p{color:rgba(250,249,245,0.82);}
-
-  .korridor{
-    position:relative;
-    height:340px;
-    border-radius:18px;
-    overflow:hidden;
-    margin:40px 0 36px;
-    background:linear-gradient(180deg,#20202a 0%, #14141c 100%);
-  }
-  .wall{position:absolute;top:0;bottom:0;width:52%;background:linear-gradient(90deg,var(--lila) 0%,var(--lila-deep) 100%);}
-  .wall.left{left:0;clip-path:polygon(0 0, 0 100%, 44% 100%, 50% 0);}
-  .wall.right{right:0;background:linear-gradient(270deg,var(--lila) 0%,var(--lila-deep) 100%);clip-path:polygon(100% 0,100% 100%,56% 100%,50% 0);}
-  .wall-label{
-    position:absolute;top:50%;
-    font-family:'Syne',sans-serif;font-weight:700;letter-spacing:0.14em;
-    text-transform:uppercase;font-size:14px;color:var(--offwhite);
-    white-space:nowrap;
-  }
-  .wall-label.left{left:14%;transform:translateY(-50%) rotate(-90deg);transform-origin:left center;}
-  .wall-label.right{right:14%;transform:translateY(-50%) rotate(90deg);transform-origin:right center;}
-  .floor{
-    position:absolute;left:50%;bottom:0;transform:translateX(-50%);
-    width:14%;height:100%;
-    background:linear-gradient(180deg, rgba(196,240,0,0) 0%, rgba(196,240,0,0.14) 55%, rgba(196,240,0,0.32) 100%);
-    clip-path:polygon(42% 0, 58% 0, 100% 100%, 0 100%);
-  }
-  .korridor .cat{
-    position:absolute;left:50%;bottom:16px;
-    width:44px;height:auto;
-    transform:translateX(-50%);
-    filter:drop-shadow(0 0 10px rgba(196,240,0,0.55));
-    animation:catbob 2.6s ease-in-out infinite;
-  }
-  .korridor .cat path,.korridor .cat ellipse,.korridor .cat circle{fill:var(--limette);}
-  @keyframes catbob{
-    0%,100%{transform:translateX(-50%) translateY(0);}
-    50%{transform:translateX(-50%) translateY(-5px);}
-  }
-  .korridor .tag-far{position:absolute;top:16px;left:50%;transform:translateX(-50%);font-size:12px;letter-spacing:0.16em;text-transform:uppercase;color:rgba(250,249,245,0.55);font-family:'Syne',sans-serif;font-weight:600;}
-
-  /* ---------- Antrieb ---------- */
-  .close{
-    font-family:'Syne',sans-serif;font-weight:700;
-    font-size:clamp(22px,3.4vw,30px);
-    margin-top:30px;max-width:560px;
-  }
-  .close .lila{color:var(--lila);}
-
-  /* ---------- Mitnehmen ---------- */
-  .list{list-style:none;padding:0;margin:36px 0 0;display:grid;gap:2px;}
-  .list li{
-    background:var(--offwhite-2);
-    padding:24px 26px;
-    border-radius:14px;
-    display:flex;
-    gap:20px;
-    align-items:flex-start;
-  }
-  .list .num{
-    font-family:'Syne',sans-serif;font-weight:800;font-size:22px;
-    color:var(--lila);line-height:1.2;min-width:34px;
-  }
-  .list p{margin:0;max-width:none;}
-
-  /* ---------- Identity ---------- */
-  .no-list{list-style:none;padding:0;margin:0 0 30px;}
-  .no-list li{padding:0 0 10px;color:rgba(43,43,51,0.72);}
-  .no-list li::before{content:"×";color:var(--lila);font-weight:700;margin-right:10px;}
-  .claim{
-    font-family:'Syne',sans-serif;font-weight:800;
-    font-size:clamp(26px,4.6vw,44px);
-    color:var(--lila);line-height:1.1;margin:34px 0 0;max-width:640px;
-  }
-
-  /* ---------- CTA ---------- */
-  .cta-section{background:var(--limette);color:var(--anthrazit);text-align:center;}
-  .cta-section .eyebrow{color:var(--lila);}
-  .cta-section h2{font-size:clamp(30px,5vw,52px);font-weight:800;margin:0 0 20px;}
-  .cta-section p{margin:0 auto 8px;max-width:520px;}
-  .cta-section .btn{margin-top:30px;}
-  .cta-section .fineprint{font-size:14px;color:rgba(43,43,51,0.65);margin-top:18px;}
-  .cta-section .fineprint a{color:var(--lila);font-weight:600;text-decoration:underline;}
-
-  /* ---------- Footer ---------- */
-  footer{background:var(--anthrazit);color:rgba(250,249,245,0.7);padding:40px 0;font-size:14px;}
-  footer .wrap{display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between;align-items:center;}
-  footer a{color:var(--offwhite);text-decoration:none;border-bottom:1px solid rgba(196,240,0,0.5);padding-bottom:1px;}
-  footer a:hover{border-color:var(--limette);}
-  footer .brand{font-family:'Syne',sans-serif;font-weight:700;color:var(--offwhite);}
-
-  /* ---------- Reveal ---------- */
-  .reveal{opacity:0;transform:translateY(18px);transition:opacity .6s ease, transform .6s ease;}
-  .reveal.in{opacity:1;transform:none;}
-
-  /* ---------- Consent banner ---------- */
-  #consent{
-    position:fixed;left:0;right:0;bottom:0;z-index:50;
-    background:var(--anthrazit);color:var(--offwhite);
-    padding:16px 20px;font-size:14px;
-    display:none;
-    box-shadow:0 -6px 24px rgba(0,0,0,0.2);
-  }
-  #consent.show{display:block;}
-  #consent .wrap{display:flex;flex-wrap:wrap;gap:14px;align-items:center;justify-content:space-between;}
-  #consent p{margin:0;max-width:620px;color:rgba(250,249,245,0.82);}
-  #consent .actions{display:flex;gap:10px;flex-shrink:0;}
-  #consent button{
-    font-family:'Syne',sans-serif;font-weight:700;font-size:14px;
-    border-radius:999px;padding:10px 20px;border:none;cursor:pointer;
-  }
-  #consent .accept{background:var(--limette);color:var(--anthrazit);}
-  #consent .decline{background:transparent;color:var(--offwhite);border:1px solid rgba(250,249,245,0.4);}
-
-  @media (max-width:640px){
-    section{padding:64px 0;}
-    .korridor{height:260px;}
-    .wall-label{font-size:12px;}
-    .list li{flex-direction:column;gap:8px;}
-  }
-  @media (prefers-reduced-motion:reduce){
-    html{scroll-behavior:auto;}
-    .reveal{opacity:1;transform:none;transition:none;}
-    .btn{transition:none;}
-    .korridor .cat{animation:none;}
-  }
-  /* ---- MailerLite-Warteliste-Formular, an Marke angepasst ---- */
-  #mlb2-41838400{max-width:440px;margin:14px auto 0;}
-  #mlb2-41838400 .ml-form-embedWrapper{background:transparent;width:100%;max-width:440px;display:block;}
-  #mlb2-41838400 .ml-form-embedBody{padding:0;}
-  #mlb2-41838400 .ml-form-embedContent{margin:0;}
-  #mlb2-41838400 .ml-form-formContent{margin:0;}
-  #mlb2-41838400 .ml-form-fieldRow{margin:0 0 12px 0;}
-  #mlb2-41838400 input[type=email]{
-    width:100%;box-sizing:border-box;
-    background:#fff;color:var(--anthrazit);
-    border:2px solid rgba(43,43,51,0.15);border-radius:999px;
-    font-family:'Epilogue',system-ui,sans-serif;font-size:16px;
-    padding:15px 22px;text-align:center;
-  }
-  #mlb2-41838400 input[type=email]::placeholder{color:rgba(43,43,51,0.5);}
-  #mlb2-41838400 input[type=email]:focus{outline:none;border-color:var(--lila);}
-  #mlb2-41838400 .ml-form-embedSubmit{margin:0;}
-  #mlb2-41838400 .ml-form-embedSubmit button.primary{
-    width:100%;cursor:pointer;
-    background:var(--lila);color:var(--offwhite);
-    border:2px solid transparent;border-radius:999px;
-    font-family:'Epilogue',system-ui,sans-serif;font-weight:700;font-size:16px;
-    padding:16px 30px;
-    box-shadow:0 8px 24px rgba(91,22,214,0.28);
-    transition:transform .15s ease, background .15s ease;
-  }
-  #mlb2-41838400 .ml-form-embedSubmit button.primary:hover{transform:translateY(-2px);background:var(--lila-deep);}
-  #mlb2-41838400 .ml-form-successContent h4{color:var(--lila);font-family:'Syne',system-ui,sans-serif;margin:0 0 8px;}
-  #mlb2-41838400 .ml-form-successContent p{color:var(--anthrazit);font-family:'Epilogue',system-ui,sans-serif;margin:0;}
-  .ml-form-embedSubmitLoad{display:inline-block;width:20px;height:20px;}
-  .ml-form-embedSubmitLoad:after{content:" ";display:block;width:11px;height:11px;margin:1px;border-radius:50%;border:4px solid #fff;border-color:#fff #fff #fff transparent;animation:ml-load 1.2s linear infinite;}
-  @keyframes ml-load{0%{transform:rotate(0)}100%{transform:rotate(360deg)}}
-</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dopamin statt Disziplin – der Dopamiezenkurs | neurodiversleben</title>
+<meta name="description" content="Der Kurs für neurodivergente Gehirne: Warum Disziplin bei dir nicht hält, und was stattdessen trägt. 7 Sessions, Workbook und Ideenliste.">
+<link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/gochi-hand-latin-400-normal.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="/assets/style.css">
+<link rel="stylesheet" href="/assets/landing.css">
+<meta property="og:title" content="Dopamin statt Disziplin – der Dopamiezenkurs">
+<meta property="og:description" content="Der Kurs für neurodivergente Gehirne: Warum Disziplin bei dir nicht hält, und was stattdessen trägt. 7 Sessions, Workbook und Ideenliste.">
+<meta property="og:type" content="website">
 </head>
 <body>
+<a class="skip" href="#inhalt">Zum Inhalt springen</a>
 
-<!-- ===================== HERO ===================== -->
-<header class="hero">
+<header class="site-header">
   <div class="wrap">
-    <h1><span class="dop">Dopamin</span> <span class="statt">statt</span> <span class="disz">Disziplin</span></h1>
-    <p class="kurs-tag"><svg class="paw" viewBox="0 0 24 24" aria-hidden="true"><ellipse cx="6" cy="9" rx="2.1" ry="2.7"/><ellipse cx="11" cy="6.4" rx="2.1" ry="2.9"/><ellipse cx="16.6" cy="7.4" rx="2.1" ry="2.8"/><ellipse cx="20" cy="11.6" rx="1.9" ry="2.4"/><path d="M12 11 c-3.6 0 -6.5 2.5 -6.5 5.4 c0 2.2 2 3.1 3.7 2.4 c1.7 -0.7 3.9 -0.7 5.6 0 c1.7 0.7 3.7 -0.2 3.7 -2.4 c0 -2.9 -2.9 -5.4 -6.5 -5.4 z"/></svg>Der Dopamiezenkurs</p>
-    <p class="sub">Der Kurs für neurodivergente Gehirne.</p>
-    <p class="kicker">Warum Disziplin bei dir nicht hält. Und was stattdessen trägt.</p>
-    <a class="btn btn-primary" href="#warteliste">Auf die Warteliste</a>
+    <a class="brand" href="/"><img src="/assets/logo.svg" width="26" height="29" alt="">neurodiversleben</a>
+    <nav class="nav" aria-label="Hauptnavigation">
+      <a href="/#angebote">Angebote</a>
+      <a href="/#gratis">Gratis-Guides</a>
+      <a href="/#ueber">Über mich</a>
+      <a href="/kontakt/">Kontakt</a>
+    </nav>
   </div>
 </header>
 
-<!-- ===================== KENNST DU DAS ===================== -->
-<section class="recognition">
-  <div class="wrap reveal">
-    <p class="eyebrow">Kennst du das</p>
-    <p class="lead">Du weißt genau, was zu tun ist. Du willst es sogar. Und trotzdem kommst du nicht los.</p>
-    <p>Manchmal, weil alles zu viel ist. Zu laut, zu dicht, zu schnell, und dein System macht dicht.</p>
-    <p>Manchmal, weil nichts anspringt. Die Aufgabe liegt da, aber sie ist zu zäh, um überhaupt einzurasten, und du landest bei allem außer ihr.</p>
-    <p class="punch">Beides fühlt sich an wie Versagen. Dabei sind es zwei verschiedene Wände.</p>
+<main id="inhalt">
+
+<section class="wrap lp-hero">
+  <div class="lp-hero-text">
+    <span class="pill pill-limette">Der Dopamiezenkurs · 7 Sessions + Workbook + Ideenliste</span>
+    <h1 class="h1">Dopamin <span class="marker">statt Disziplin</span></h1>
+    <p class="lp-claim">Warum Disziplin bei dir nicht hält. Und was stattdessen trägt.</p>
+    <p class="lead">Der Kurs für neurodivergente Gehirne. Sieben kurze Sessions, die du schaust, wann es für dich passt, dazu ein Workbook zum Ausfüllen und eine Ideenliste mit konkreten Griffen für den Alltag.</p>
+  </div>
+  <div class="lp-form-card" id="anmelden" data-phase="warte">
+    <div id="mlb2-41838400" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-41838400">
+      <div class="ml-form-embedBody row-form">
+        <p class="lp-form-titel">Auf die Warteliste</p>
+        <form class="ml-block-form lp-form" action="https://assets.mailerlite.com/jsonp/2344410/forms/188620995092808793/subscribe" data-code="" method="post" target="_blank">
+          <div class="ml-form-formContent">
+            <div class="ml-form-fieldRow ml-last-item">
+              <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
+                <label for="lp-mail">E-Mail-Adresse</label>
+                <input id="lp-mail" type="email" class="form-control" data-inputmask="" name="fields[email]" placeholder="name@beispiel.at" autocomplete="email" aria-required="true">
+              </div>
+            </div>
+          </div>
+          <input type="hidden" name="ml-submit" value="1">
+          <div class="ml-form-embedSubmit">
+            <button type="submit" class="primary btn btn-lila">Frühbucher:innen-Rabatt sichern</button>
+            <button disabled="disabled" style="display: none;" type="button" class="loading btn btn-lila">Wird gesendet …</button>
+          </div>
+          <input type="hidden" name="anticsrf" value="true">
+        </form>
+        <p class="lp-form-hinweis">Wer jetzt auf der Warteliste steht, erfährt als Erste, wenn es losgeht, und bekommt den Frühbucher:innen-Rabatt. Kein Spam. Mehr in der <a href="/datenschutz/">Datenschutzerklärung</a>.</p>
+      </div>
+      <div class="ml-form-successBody row-success" style="display: none" role="status">
+        <p class="lp-form-titel">Fast geschafft!</p>
+        <p class="lp-form-hinweis" style="color: var(--text-2)">Schau in dein Postfach und bestätige die Anmeldung, dann stehst du auf der Warteliste.</p>
+      </div>
+    </div>
+  </div>
+  <div class="lp-form-card" id="kaufen" data-phase="kauf" hidden>
+    <p class="lp-form-titel">Der Dopamiezenkurs</p>
+    <p class="lp-preis">89 €</p>
+    <p class="lp-form-hinweis" style="margin-top:0">einmalig · sofort Zugang · 7 Sessions, Workbook &amp; Ideenliste</p>
+    <a class="btn btn-lila lp-kauf-btn" href="#" target="_blank" rel="noopener" data-checkout>Jetzt kaufen</a>
+    <p class="lp-form-hinweis">Sichere Zahlung über CopeCart. Kein Abo. Du schaust die Sessions, wann es für dich passt.</p>
   </div>
 </section>
 
-<!-- ===================== SOG-KORRIDOR (signature) ===================== -->
-<section class="korridor-section">
-  <div class="wrap reveal">
-    <p class="eyebrow">Der Sog-Korridor</p>
-    <h2>Zwischen den beiden Wänden liegt ein schmaler Gang.</h2>
+<section class="wrap lp-block">
+  <p class="eyebrow">Kennst du das?</p>
+  <div class="lp-zwei">
+    <h2 class="h2">Du weißt genau, was zu tun ist. Und kommst trotzdem nicht los.</h2>
+    <div class="lp-text">
+      <p>Du willst es sogar. Manchmal, weil alles zu viel ist. Zu laut, zu dicht, zu schnell, und dein System macht dicht.</p>
+      <p>Manchmal, weil nichts anspringt. Die Aufgabe liegt da, aber sie ist zu zäh, um überhaupt einzurasten, und du landest bei allem außer ihr.</p>
+      <p><strong>Beides fühlt sich an wie Versagen. Dabei sind es zwei verschiedene Wände.</strong></p>
+    </div>
+  </div>
+</section>
 
+<section class="wrap lp-block">
+  <div class="korridor-block">
+    <p class="lp-zitat-label">Der Sog-Korridor</p>
+    <h2 class="h2">Zwischen den beiden Wänden liegt ein schmaler Gang.</h2>
     <div class="korridor" aria-hidden="true">
       <span class="tag-far">Sog</span>
       <div class="wall left"></div>
@@ -356,191 +105,224 @@
         <path d="M67 36 L72 9 L51 30 Z"/>
       </svg>
     </div>
-
     <p>Kippst du nach links, ist alles zu viel. Du machst zu, ziehst dich zurück, bringst nichts mehr raus.</p>
     <p>Kippst du nach rechts, ist alles zu wenig. Es zieht dich nichts, und du kommst nicht in Bewegung.</p>
     <p>Was dich durch diesen Korridor bewegt, ist Dopamin. Dein Antrieb. Und der funktioniert bei neurodivergenten Gehirnen anders.</p>
   </div>
 </section>
 
-<!-- ===================== ANTRIEB ===================== -->
-<section class="antrieb">
-  <div class="wrap reveal">
-    <p class="eyebrow">Dein Antrieb tickt anders</p>
-    <p>Dopamin gilt als Belohnung. Das ist die halbe Geschichte. Es ist zuerst einmal Antrieb: das, was dich überhaupt in Bewegung bringt, lange bevor eine Belohnung kommt.</p>
-    <p>Bei einem neurodivergenten Dopaminsystem springt dieser Antrieb nicht auf Wichtigkeit an. Er springt auf Interesse, auf Neuheit, auf Dringlichkeit. Deshalb hast du für manches endlos Kapazität und für anderes keinen einzigen Schritt.</p>
-    <p>Disziplin arbeitet gegen die falsche Wand. Sie sagt dir, du sollst dich mehr zusammenreißen, während dein System ein ganz anderes Signal braucht.</p>
-    <p class="close">Das Problem war nie dein Einsatz. <span class="lila">Es war die Anleitung.</span></p>
-  </div>
-</section>
-
-<!-- ===================== WAS DU MITNIMMST ===================== -->
-<section class="mitnehmen">
-  <div class="wrap reveal">
-    <p class="eyebrow">Was du im Kurs mitnimmst</p>
-    <ul class="list">
-      <li><span class="num">01</span><p>Worauf dein Antrieb wirklich anspringt (Interesse statt Wichtigkeit) und wie du das nutzt, statt dagegen anzurennen.</p></li>
-      <li><span class="num">02</span><p>Wie du anfängst, wenn die Aufgabe zäh ist. Ein paar konkrete Handgriffe, die deinen Antrieb einrasten lassen.</p></li>
-      <li><span class="num">03</span><p>Wie du dranbleibst, ohne dich zu überfordern. Und warum schnelle Dopaminquellen wie Zucker oder Social Media dich langfristig leerer machen.</p></li>
-      <li><span class="num">04</span><p>Wie du steuerst, wenn der Sog wieder kippt. Ein Werkzeug für die Tage, an denen nichts läuft.</p></li>
-      <li><span class="num">05</span><p>Dein eigenes Dopamin-Profil. Ein einfaches System, das sich nach deinem Gehirn richtet, nicht nach einem Durchschnittsgehirn.</p></li>
-    </ul>
-  </div>
-</section>
-
-<!-- ===================== KEIN MOTIVATIONSVORTRAG ===================== -->
-<section class="identity">
-  <div class="wrap reveal">
-    <p class="eyebrow">Kein Motivationsvortrag</p>
-    <ul class="no-list">
-      <li>Kein erhobener Zeigefinger.</li>
-      <li>Kein „du schaffst das, wenn du nur willst".</li>
-      <li>Kein Reframing, das dir die Verantwortung für ein System-Problem zurückschiebt.</li>
-    </ul>
-    <p>Der Kurs kommt von jemandem, die es selbst kennt. Ich bin Sabrina. Ich wurde spät diagnostiziert. Davor: jahrelang das Gefühl, dass vieles schwerer ist, als es sein sollte, und keine Erklärung dafür.</p>
-    <p>Heute weiß ich, wie mein Gehirn tickt, und ich arbeite mit ihm statt gegen es. Genau das gebe ich dir im Kurs weiter.</p>
-    <p class="claim">Nicht der Fehler im System. Der Beweis dafür.</p>
-  </div>
-</section>
-
-<!-- ===================== FÜR WEN DAS NICHT IST ===================== -->
-<section class="fit">
-  <div class="wrap reveal">
-    <p class="eyebrow">Für wen das nicht ist</p>
-    <p>Ehrlich: Der Kurs passt nicht in jede Situation.</p>
-    <p>Wenn du eine schnelle Motivations-Spritze suchst, die bis morgen hält, wirst du enttäuscht.</p>
-    <p>Wenn du gerade in einer akuten Krise oder tiefen Erschöpfung steckst, brauchst du zuerst Entlastung, keinen Kurs.</p>
-    <p>Und ganz klar: Der Kurs ersetzt keine Therapie und keine Diagnose. Es gibt dir Wissen und Werkzeug, mehr will es nicht sein.</p>
-  </div>
-</section>
-
-<!-- ===================== CTA ===================== -->
-<section class="cta-section" id="warteliste">
-  <div class="wrap reveal">
-    <p class="eyebrow">Warteliste</p>
-    <h2>Trag dich ein.</h2>
-    <p>Der Kurs ist gerade in Produktion. Wer jetzt auf der Warteliste steht, erfährt als Erste, wenn es losgeht.</p>
-    <p>Und bekommt den Frühbucher:innen-Rabatt, bevor der Kurs regulär läuft.</p>
-    <!-- MailerLite-Warteliste-Formular (Konto 2344410, Formular 188620995092808793) -->
-    <div id="mlb2-41838400" class="ml-form-embedContainer ml-subscribe-form ml-subscribe-form-41838400">
-      <div class="ml-form-align-center">
-        <div class="ml-form-embedWrapper embedForm">
-          <div class="ml-form-embedBody ml-form-embedBodyDefault row-form">
-            <div class="ml-form-embedContent"></div>
-            <form class="ml-block-form" action="https://assets.mailerlite.com/jsonp/2344410/forms/188620995092808793/subscribe" data-code="" method="post" target="_blank">
-              <div class="ml-form-formContent">
-                <div class="ml-form-fieldRow ml-last-item">
-                  <div class="ml-field-group ml-field-email ml-validate-email ml-validate-required">
-                    <input aria-label="email" aria-required="true" type="email" class="form-control" name="fields[email]" placeholder="deine@email.at" autocomplete="email">
-                  </div>
-                </div>
-              </div>
-              <input type="hidden" name="ml-submit" value="1">
-              <div class="ml-form-embedSubmit">
-                <button type="submit" class="primary">Jetzt anmelden und Frühbucher:innen-Rabatt sichern</button>
-                <button disabled="disabled" style="display:none;" type="button" class="loading">
-                  <div class="ml-form-embedSubmitLoad"></div><span class="sr-only">Lädt…</span>
-                </button>
-              </div>
-              <input type="hidden" name="anticsrf" value="true">
-            </form>
-          </div>
-          <div class="ml-form-successBody row-success" style="display:none">
-            <div class="ml-form-successContent">
-              <h4>Fast geschafft!</h4>
-              <p>Schau in dein Postfach und bestätige die Anmeldung — dann stehst du auf der Warteliste.</p>
-            </div>
-          </div>
-        </div>
-      </div>
+<section class="wrap lp-block">
+  <p class="eyebrow">Dein Antrieb tickt anders</p>
+  <div class="lp-zwei">
+    <h2 class="h2">Dopamin ist nicht nur Belohnung. Es ist Antrieb.</h2>
+    <div class="lp-text">
+      <p>Dopamin gilt als Belohnung. Das ist die halbe Geschichte. Es ist zuerst einmal Antrieb: das, was dich überhaupt in Bewegung bringt, lange bevor eine Belohnung kommt.</p>
+      <p>Bei einem neurodivergenten Dopaminsystem springt dieser Antrieb nicht auf Wichtigkeit an. Er springt auf Interesse, auf Neuheit, auf Dringlichkeit, auf Herausforderung und auf Bedeutung. Deshalb hast du für manches endlos Kapazität und für anderes keinen einzigen Schritt.</p>
+      <p>Disziplin arbeitet gegen die falsche Wand. Sie sagt dir, du sollst dich mehr zusammenreißen, während dein System ein ganz anderes Signal braucht.</p>
     </div>
-    <p class="fineprint">Kein Spam. Nur eine Nachricht, wenn es losgeht.</p>
-    <p class="fineprint">Fragen? Du kannst mich jederzeit erreichen. <a href="mailto:neurodiversleben@gmail.com">Schreib mir</a>.</p>
   </div>
 </section>
 
-<!-- ===================== FOOTER ===================== -->
-<footer>
+<section class="wrap lp-block">
+  <div class="lp-zitat">
+    <blockquote>Das Problem war nie dein Einsatz. <span class="lp-hl">Es war die Anleitung.</span></blockquote>
+  </div>
+</section>
+
+<section class="wrap lp-block">
+  <p class="eyebrow">Die eigentliche Arbeit</p>
+  <div class="lp-zwei">
+    <h2 class="h2">Methoden sind das eine. Dein Selbstbild ist das andere.</h2>
+    <div class="lp-text">
+      <p>Du kannst die besten Werkzeuge haben. Solange du dich selbst als das Problem siehst, fühlt sich jeder holprige Tag wie ein Beweis dafür an, und du gibst auf, bevor die Werkzeuge greifen können.</p>
+      <p>Darum zieht sich ein zweiter Faden durch den ganzen Kurs: wie du über dich denkst und mit dir redest, wenn es mal nicht klappt. Das ändert sich nicht von heute auf morgen. Es ist ein Prozess. Aber genau der macht den Unterschied.</p>
+    </div>
+  </div>
+  <div class="lp-kacheln">
+    <div class="lp-kachel">
+      <h3>Der Gedanken-Check</h3>
+      <p>Eine kleine Begleitübung, die durch alle Sessions mitläuft. Nur bemerken, was du über dich denkst und was es mit dir macht. Nicht ändern müssen.</p>
+    </div>
+    <div class="lp-kachel">
+      <h3>Zurück ohne Strafe</h3>
+      <p>Du wirst rausfallen. Das ist eingebaut. Neu ist, dass du weißt, wie du zurückkommst, ohne dich dafür fertigzumachen.</p>
+    </div>
+    <div class="lp-kachel">
+      <h3>Verlangen oder Wohltun?</h3>
+      <p>Die eine Frage, die dir hilft, zu unterscheiden, was dich nur kurz kickt und was dir wirklich guttut.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap lp-block">
+  <p class="eyebrow">Was dich erwartet</p>
+  <h2 class="h2">7 Sessions. Ein roter Faden.</h2>
+  <p class="lead">Kurz und einzeln schaubar, weil auch das Format zu deinem Gehirn passen soll. Der Sog-Korridor begleitet dich durch alle Sessions.</p>
+  <ol class="lp-sessions">
+    <li><span class="lp-nr">01</span><div><span class="lp-modul">Grundlagen</span><h3>Der falsche Schlüssel</h3><p>Warum Disziplin bei dir nicht ins Schloss passt. Und warum es nie an deinem Einsatz lag, sondern an der Anleitung.</p></div></li>
+    <li><span class="lp-nr">02</span><div><span class="lp-modul">Grundlagen</span><h3>Wie dein Antrieb tickt</h3><p>Die fünf Treibstoffe deines Gehirns: Interesse, Dringlichkeit, Herausforderung, Bedeutung und Neuheit. Welche dich ziehen, welche dich mehr kosten, und wie du sie in eine zähe Aufgabe einbaust.</p></div></li>
+    <li><span class="lp-nr">03</span><div><span class="lp-modul">Grundlagen</span><h3>Erst Platz, dann Sog</h3><p>Warum Antrieb nicht unter Druck entsteht, sondern erst, wenn oben genug Luft ist. Und wie du Platz schaffst, ohne in die Falle „erst muss alles erledigt sein“ zu tappen.</p></div></li>
+    <li><span class="lp-nr">04</span><div><span class="lp-modul">Methoden</span><h3>Anfangen</h3><p>Wie du in den Korridor reinkommst, wenn die Aufgabe zäh ist. Konkrete Handgriffe, die deinen Antrieb einrasten lassen.</p></div></li>
+    <li><span class="lp-nr">05</span><div><span class="lp-modul">Methoden</span><h3>Dranbleiben</h3><p>Wie du drinbleibst und nachsteuerst, bevor du an einer der beiden Wände kippst. Und warum schnelle Dopaminquellen dich auf Dauer leerer machen.</p></div></li>
+    <li><span class="lp-nr">06</span><div><span class="lp-modul">Methoden</span><h3>Steuern</h3><p>Wie du zurückfindest, wenn du rausfällst. Ohne Strafe, ohne Neustart-Drama. Mit einem Werkzeug für die Tage, an denen nichts läuft.</p></div></li>
+    <li><span class="lp-nr">07</span><div><span class="lp-modul">Dein Profil</span><h3>Profil &amp; Abschluss</h3><p>Du baust dein eigenes Dopamin-Profil, ein System, das sich nach deinem Gehirn richtet, nicht nach einem Durchschnittsgehirn. Und du testest es an einem ersten, kleinen Schritt.</p></div></li>
+  </ol>
+</section>
+
+<section class="wrap lp-block">
+  <p class="eyebrow">Dazu bekommst du</p>
+  <h2 class="h2">Zum Ausfüllen und Nachschlagen</h2>
+  <div class="lp-kacheln">
+    <div class="lp-kachel lp-kachel-weiss">
+      <h3>Workbook „Dein Dopamin-Profil“</h3>
+      <p>Zu jeder Session die passende Seite zum Ausfüllen, mit Beispielen als Starthilfe. Am Ende hältst du dein eigenes Dopamin-Profil in der Hand, ein System, das zu dir passt und nicht zu irgendeinem Standard.</p>
+    </div>
+    <div class="lp-kachel">
+      <h3>Bonus: die Ideenliste</h3>
+      <p>Eine ganze Sammlung konkreter Griffe, wie du deine Treibstoffe in den Alltag einbaust. Zum Durchblättern, wenn dir gerade nichts einfällt. Einiges davon machst du vermutlich schon instinktiv.</p>
+    </div>
+    <div class="lp-kachel lp-kachel-weiss">
+      <h3>In deinem Tempo</h3>
+      <p>Alle Sessions sind aufgezeichnet. Kein Fake-Live, kein Countdown. Du schaust, wann und so oft du willst.</p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap lp-block">
+  <p class="eyebrow">Kein Motivationsvortrag</p>
+  <div class="lp-zwei">
+    <h2 class="h2">Kein erhobener Zeigefinger.</h2>
+    <div class="lp-text">
+      <p>Kein „du schaffst das, wenn du nur willst“. Kein Reframing, das dir die Verantwortung für ein System-Problem zurückschiebt.</p>
+      <p>Der Kurs kommt von jemandem, die es selbst kennt. Ich bin Sabrina. Ich wurde spät diagnostiziert. Davor: jahrelang das Gefühl, dass vieles schwerer ist, als es sein sollte, und keine Erklärung dafür.</p>
+      <p>Heute weiß ich, wie mein Gehirn tickt, und ich arbeite mit ihm statt gegen es. Genau das gebe ich dir im Kurs weiter.</p>
+      <p><strong>Nicht der Fehler im System. Der Beweis dafür.</strong></p>
+    </div>
+  </div>
+</section>
+
+<section class="wrap lp-block">
+  <p class="eyebrow">Für wen das nicht ist</p>
+  <h2 class="h2">Ehrlich: Der Kurs passt nicht in jede Situation.</h2>
+  <div class="lp-kacheln">
+    <div class="lp-kachel lp-kachel-weiss"><p>Wenn du eine schnelle Motivations-Spritze suchst, die bis morgen hält, wirst du enttäuscht.</p></div>
+    <div class="lp-kachel lp-kachel-weiss"><p>Wenn du gerade in einer akuten Krise oder tiefen Erschöpfung steckst, brauchst du zuerst Entlastung, keinen Kurs.</p></div>
+    <div class="lp-kachel lp-kachel-weiss"><p>Der Kurs ersetzt keine Therapie und keine Diagnose. Er gibt dir Wissen und Werkzeug, mehr will er nicht sein.</p></div>
+  </div>
+</section>
+
+<section class="wrap lp-block">
+  <div class="lp-kauf-band" data-phase="warte">
+    <div>
+      <p class="lp-zitat-label">Warteliste</p>
+      <h2 class="h2">Trag dich ein.</h2>
+      <p>Wer jetzt auf der Warteliste steht, erfährt als Erste, wenn es losgeht, und bekommt den Frühbucher:innen-Rabatt.</p>
+    </div>
+    <div class="lp-kauf-band-aktion">
+      <a class="btn btn-limette" href="#anmelden">Auf die Warteliste</a>
+    </div>
+  </div>
+  <div class="lp-kauf-band" data-phase="kauf" hidden>
+    <div>
+      <p class="lp-zitat-label">Jetzt starten</p>
+      <h2 class="h2">Dein Gehirn ist nicht falsch. Es braucht eine andere Anleitung.</h2>
+      <p>7 Sessions, das Workbook und die Ideenliste. Einmal kaufen, sofort loslegen, in deinem Tempo.</p>
+    </div>
+    <div class="lp-kauf-band-aktion">
+      <p class="lp-preis">89 €</p>
+      <a class="btn btn-limette" href="#" target="_blank" rel="noopener" data-checkout>Jetzt kaufen</a>
+    </div>
+  </div>
+</section>
+
+<section class="wrap lp-block">
+  <h2 class="h2">Häufige Fragen</h2>
+  <div class="lp-faq">
+    <details><summary>Brauche ich eine Diagnose?</summary><p>Nein. Ob diagnostiziert oder für dich selbst erkannt: Wenn du dich in dem wiedererkennst, was oben steht, ist der Kurs für dich.</p></details>
+    <details><summary>Wie läuft der Kurs ab?</summary><p>Alle sieben Sessions sind aufgezeichnet und kurz gehalten. Du schaust sie, wann es für dich passt, in deinem Tempo und so oft du willst. Das Workbook füllst du parallel aus.</p></details>
+    <details><summary>Ist das ein Produktivitätskurs?</summary><p>Nein. Es geht nicht darum, mehr zu schaffen, sondern darum, an das ranzukommen, was du eigentlich tun willst, ohne gegen dein eigenes Gehirn zu kämpfen.</p></details>
+    <details><summary>Was, wenn ich zwischendurch aussteige?</summary><p>Dann steigst du wieder ein. Rausfallen ist im Kurs eingeplant, und wie du zurückfindest, ist eines der Herzstücke.</p></details>
+  </div>
+</section>
+
+<section class="wrap lp-block">
+  <p class="eyebrow">Das könnte dich auch interessieren</p>
+  <div class="grid">
+    <article class="card card-gratis">
+      <span class="tag">Gratis-Guide</span>
+      <h4>Dopamin verstehen</h4>
+      <p class="desc">Was dein Antrieb wirklich braucht und warum Disziplin oft ins Leere läuft.</p>
+      <a class="link-pfeil" href="/dopaminverstehen/">Gratis holen →</a>
+    </article>
+    <article class="card card-kauf">
+      <span class="tag">Guide + Workbook</span>
+      <h4>Taskparalyse überwinden</h4>
+      <p class="desc">Drei Auslöser plus PDA, 12 Wege raus nach Freeze-Typ sortiert und eine Notfallkarte.</p>
+      <div class="card-fuss"><span class="preis">24 €</span><a class="btn btn-dunkel btn-klein" href="/taskparalyse-ueberwinden/">Mehr erfahren</a></div>
+    </article>
+    <article class="card card-gratis">
+      <span class="tag">Gratis-Guide</span>
+      <h4>PDA verstehen</h4>
+      <p class="desc">Warum sich Anforderungen wie eine Bedrohung anfühlen können.</p>
+      <a class="link-pfeil" href="/pda/">Gratis holen →</a>
+    </article>
+  </div>
+</section>
+
+<section class="wrap lp-block"><p class="lp-disclaimer">Der Kurs dient der Information und Selbsthilfe. Er ersetzt keine Diagnostik, keine Therapie und keine individuelle Beratung. Fragen? <a href="/kontakt/">Schreib mir.</a></p></section>
+
+</main>
+
+<footer class="site-footer">
   <div class="wrap">
-    <span class="brand">neurodiversleben</span>
-    <span>
-      <a href="mailto:neurodiversleben@gmail.com">Kontakt</a> &nbsp;·&nbsp;
-      <a href="/impressum/">Impressum</a> &nbsp;·&nbsp;
+    <span>© neurodiversleben</span>
+    <nav aria-label="Footer">
+      <a href="/kontakt/">Kontakt</a>
+      <a href="https://instagram.com/neurodiversleben" rel="noopener">Instagram</a>
+      <a href="/impressum/">Impressum</a>
       <a href="/datenschutz/">Datenschutz</a>
-    </span>
+      <button type="button" class="footer-btn" data-cookie-settings>Cookie-Einstellungen</button>
+    </nav>
   </div>
 </footer>
 
-<!-- ===================== CONSENT + META PIXEL ===================== -->
-<div id="consent" role="dialog" aria-label="Cookie-Einwilligung">
-  <div class="wrap">
-    <p>Diese Seite kann den Meta Pixel laden, um Reichweite zu messen. Nur mit deiner Zustimmung. Details im <a href="/datenschutz/" style="color:var(--limette)">Datenschutz</a>.</p>
-    <div class="actions">
-      <button class="decline" id="consent-decline">Ablehnen</button>
-      <button class="accept" id="consent-accept">Akzeptieren</button>
-    </div>
+<div id="nl-consent" role="dialog" aria-live="polite" aria-label="Cookie-Einwilligung">
+  <p>Ich nutze einen Marketing-Pixel (Meta), um zu sehen, ob meine Anzeigen funktionieren. Der lädt nur, wenn du zustimmst. Mehr dazu in der <a href="/datenschutz/">Datenschutzerklärung</a>.</p>
+  <div class="nl-btns">
+    <button type="button" class="nl-accept" id="nl-accept">Akzeptieren</button>
+    <button type="button" class="nl-decline" id="nl-decline">Nur Notwendige</button>
   </div>
 </div>
-
+<script src="/assets/site.js"></script>
 <script>
-  // ---------- Scroll reveal ----------
-  (function(){
-    var els = document.querySelectorAll('.reveal');
-    if(!('IntersectionObserver' in window)){ els.forEach(function(e){e.classList.add('in');}); return; }
-    var io = new IntersectionObserver(function(entries){
-      entries.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add('in'); io.unobserve(en.target); } });
-    },{threshold:0.15});
-    els.forEach(function(e){ io.observe(e); });
-  })();
-
-  // ---------- Consent-gated Meta Pixel ----------
-  // Pixel ID und Consent-Key wie auf den anderen neurodiversleben-Seiten.
-  (function(){
-    var KEY = 'nl_pixel_consent';
-    var PIXEL_ID = '1850603119282068';
-    var banner = document.getElementById('consent');
-
-    function stored(){ try { return localStorage.getItem(KEY); } catch(e){ return null; } }
-    function save(v){ try { localStorage.setItem(KEY, v); } catch(e){} }
-
-    function loadPixel(){
-      if(window._nlPixelLoaded) return;
-      window._nlPixelLoaded = true;
-      !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-      n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-      n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-      t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script',
-      'https://connect.facebook.net/en_US/fbevents.js');
-      fbq('init', PIXEL_ID);
-      fbq('track', 'PageView');
-    }
-
-    var choice = stored();
-    if(choice === 'granted'){ loadPixel(); }
-    else if(choice !== 'denied'){ banner.classList.add('show'); }
-
-    document.getElementById('consent-accept').addEventListener('click', function(){
-      save('granted'); banner.classList.remove('show'); loadPixel();
-    });
-    document.getElementById('consent-decline').addEventListener('click', function(){
-      save('denied'); banner.classList.remove('show');
-    });
-  })();
-</script>
-
-<!-- ===================== MAILERLITE WEBFORM ===================== -->
-<script>
-  // Erfolgs-Callback: zeigt die Danke-Nachricht und feuert das Lead-Event
-  // (fbq existiert nur, wenn der Pixel per Zustimmung geladen wurde -> automatisch consent-gated)
-  function ml_webform_success_41838400(){
+  function ml_webform_success_41838400() {
     var $ = window.ml_jQuery || window.jQuery;
     $('.ml-subscribe-form-41838400 .row-success').show();
     $('.ml-subscribe-form-41838400 .row-form').hide();
-    if(window.fbq){ fbq('track', 'Lead'); }
+    if (typeof window.fbq === 'function') { fbq('track', 'Lead', { content_name: 'Dopamin-statt-Disziplin-Warteliste' }); }
   }
 </script>
 <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519" type="text/javascript"></script>
-<script>fetch("https://assets.mailerlite.com/jsonp/2344410/forms/188620995092808793/takel").catch(function(){});</script>
-
+<script>fetch("https://assets.mailerlite.com/jsonp/2344410/forms/188620995092808793/takel")</script>
+<script>
+  /* Launch: Ab dem 3.11.2026, 18:00 Uhr (Wien) erscheint der Kaufbutton statt der Warteliste.
+     Solange CHECKOUT leer ist, bleibt die Warteliste sichtbar. Vorschau: ?vorschau=kauf */
+  (function () {
+    var LAUNCH = new Date('2026-11-03T18:00:00+01:00');
+    var CHECKOUT = '';
+    var vorschau = /[?&]vorschau=kauf/.test(location.search);
+    var kauf = (Date.now() >= LAUNCH.getTime() && CHECKOUT) || vorschau;
+    if (!kauf) return;
+    document.querySelectorAll('[data-phase="warte"]').forEach(function (el) { el.hidden = true; });
+    document.querySelectorAll('[data-phase="kauf"]').forEach(function (el) { el.hidden = false; });
+    if (CHECKOUT) document.querySelectorAll('[data-checkout]').forEach(function (a) { a.href = CHECKOUT; });
+    document.querySelectorAll('a[href="#anmelden"]').forEach(function (a) { a.href = '#kaufen'; });
+    var pill = document.querySelector('.pill');
+    if (pill) pill.textContent = 'Der Dopamiezenkurs · jetzt verfügbar';
+  })();
+  document.querySelectorAll('[data-checkout]').forEach(function (a) {
+    a.addEventListener('click', function () { if (typeof window.fbq === 'function') { fbq('track', 'InitiateCheckout', { content_name: 'Dopamin statt Disziplin' }); } });
+  });
+</script>
 </body>
 </html>
