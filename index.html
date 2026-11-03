@@ -329,10 +329,10 @@
 <script src="https://groot.mailerlite.com/js/w/webforms.min.js?v83147fa8ce2d95cb73ece7f28b469519" type="text/javascript"></script>
 <script>fetch("https://assets.mailerlite.com/jsonp/2344410/forms/188620995092808793/takel")</script>
 <script>
-  /* Launch: Ab dem 3.11.2026, 18:00 Uhr (Wien) erscheint der Kaufbutton statt der Warteliste.
+  /* Launch: Ab dem 4.11.2026, 18:00 Uhr (Wien) erscheint der Kaufbutton statt der Warteliste.
      Solange CHECKOUT leer ist, bleibt die Warteliste sichtbar. Vorschau: ?vorschau=kauf */
   (function () {
-    var LAUNCH = new Date('2026-11-03T18:00:00+01:00');
+    var LAUNCH = new Date('2026-11-04T18:00:00+01:00');
     var CHECKOUT = '';
     var vorschau = /[?&]vorschau=kauf/.test(location.search);
     var kauf = (Date.now() >= LAUNCH.getTime() && CHECKOUT) || vorschau;
